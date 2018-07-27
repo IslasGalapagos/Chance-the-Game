@@ -42,6 +42,8 @@
   "dependencies": {
     "@types/react": "^16.4.7",
     "@types/react-dom": "^16.0.6",
+    "glamor": "^2.20.40",
+    "glamorous": "^4.13.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   }
