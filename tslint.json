@@ -1,9 +1,10 @@
 {
-  "extends": "tslint:recommended",
+  "extends": ["tslint:recommended", "tslint-react"],
   "rules": {
     "max-line-length": {
       "options": [120]
     },
+    "member-access": false,
     "new-parens": true,
     "no-arg": true,
     "no-bitwise": true,
