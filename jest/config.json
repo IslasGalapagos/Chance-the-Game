@@ -1,6 +1,7 @@
 {
+  "verbose": true,
   "rootDir": "../",
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
   "setupFiles": ["<rootDir>/jest/setup.js"],
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "transform": {
