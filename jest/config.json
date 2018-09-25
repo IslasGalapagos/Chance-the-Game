@@ -1,10 +1,12 @@
 {
-  "verbose": true,
   "rootDir": "../",
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
   "setupFiles": ["<rootDir>/jest/setup.js"],
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "transform": {
-    "^.+\\.tsx?$": "ts-jest"
-  }
+    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.jsx?$": "babel-jest"
+  },
+  "transformIgnorePatterns": ["<rootDir>/!node_modules\\/lodash-es/"],
+  "snapshotSerializers": ["jest-emotion/serializer"]
 }
