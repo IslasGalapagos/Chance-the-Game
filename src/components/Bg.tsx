@@ -49,6 +49,10 @@ class Bg extends React.PureComponent<{}, State> {
     this.draw();
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+  }
+
   getSizes() {
     return {
       width: window.innerWidth,
