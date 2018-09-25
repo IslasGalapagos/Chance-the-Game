@@ -1,6 +1,8 @@
 {
   "extends": ["tslint:recommended", "tslint-react"],
   "rules": {
+    "arrow-parens": false,
+    "interface-name": false,
     "max-line-length": {
       "options": [120]
     },
@@ -14,12 +16,21 @@
       "severity": "warning",
       "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
     },
-    "quotemark": [true, "single", "avoid-escape"],
-    "ordered-imports": false
+    "quotemark": [true, "single", "avoid-escape", "jsx-double"],
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "trailing-comma": false
   },
   "jsRules": {
     "max-line-length": {
       "options": [120]
-    }
+    },
+    "object-literal-sort-keys": false,
+    "ordered-imports": false,
+    "quotemark": [true, "single", "avoid-escape"],
+    "trailing-comma": false
+  },
+  "linterOptions": {
+    "exclude": ["./build/*"]
   }
 }
