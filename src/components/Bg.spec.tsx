@@ -106,4 +106,12 @@ describe('<Bg/>', () => {
     window.resizeTo(100, 100);
     expect(spyOnResize).toHaveBeenCalledTimes(1);
   });
+
+  it('removes resize handler on mount', () => {
+    window.removeEventListener = jest.fn();
+    const component = shallow(<Bg />);
+    expect(window.removeEventListener).not.toHaveBeenCalled();
+    component.unmount();
+    expect(window.removeEventListener).toHaveBeenCalled();
+  });
 });
