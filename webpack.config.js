@@ -1,26 +1,30 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const {NODE_ENV = 'development'} = process.env;
-
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+const {NODE_ENV = 'development'} = process.env;
+const isProduction = NODE_ENV === 'production';
 
 module.exports = {
   target: 'web',
 
   mode: NODE_ENV,
-  devtool: NODE_ENV === 'production' ? 'cheap-source-map' : 'eval',
+  devtool: isProduction ? 'cheap-source-map' : 'eval',
 
-  entry: [
-    './src/'
-  ],
+  entry: {
+    bundle: './src/',
+    normilize: './node_modules/normalize.css/normalize.css'
+  },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json']
+    extensions: ['.ts', '.tsx', '.js', '.json', '.css']
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js'
+    filename: isProduction ? '[name].[hash].js' : '[name].js'
   },
 
   module: {
@@ -37,12 +41,17 @@ module.exports = {
           },
           'ts-loader'
         ],
-        sideEffects: false
+        sideEffects: false,
+        exclude: /node_modules/
       },
       {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
@@ -50,9 +59,17 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['build']),
     new HtmlWebpackPlugin({
+      // TODO: remove normilize.js injection
       template: 'src/index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: isProduction ? '[name].[hash].css' : '[name].css'
     })
   ],
+
+  optimization: {
+    minimizer: [new OptimizeCssAssetsPlugin()]
+  },
 
   devServer: {
     hot: true
