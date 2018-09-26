@@ -1,6 +1,9 @@
 {
   "rootDir": "../",
   "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json"],
+  "moduleNameMapper": {
+    "\\.svg$": "<rootDir>/jest/images.mock.js"
+  },
   "setupFiles": ["<rootDir>/jest/setup.js"],
   "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
   "transform": {
