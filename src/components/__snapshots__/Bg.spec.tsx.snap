@@ -6,9 +6,16 @@ exports[`<Bg/> renders correctly 1`] = `
   z-index: 0;
 }
 
-<canvas
-  className="emotion-0"
-  height="768px"
-  width="1024px"
-/>
+<div>
+  <img
+    hidden={true}
+    onLoad={[Function]}
+    src="./images/chance.svg"
+  />
+  <canvas
+    className="emotion-0"
+    height="768px"
+    width="1024px"
+  />
+</div>
 `;

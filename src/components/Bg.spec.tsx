@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as testRenderer from 'react-test-renderer';
 import debounce from 'lodash-es/debounce';
 
-import Bg from './Bg';
+import Bg, {StyledCanvas} from './Bg';
 
 type TDebouncedF = () => {};
 let debouncedF: TDebouncedF;
@@ -26,9 +26,10 @@ describe('<Bg/>', () => {
     expect(treeAndStyles).toMatchSnapshot();
   });
 
-  it('has a ref', () => {
+  it('has a refs', () => {
     const component = shallow(<Bg />);
     expect(component.instance()).toHaveProperty('canvasRef');
+    expect(component.instance()).toHaveProperty('logoRef');
   });
 
   it('has config with data for drawing', () => {
@@ -48,43 +49,56 @@ describe('<Bg/>', () => {
     expect(component.state('height')).toEqual(
       window.document.body.clientHeight
     );
-    expect(component.prop('width')).toEqual(`${window.innerWidth}px`);
-    expect(component.prop('height')).toEqual(
+    const canvas = component.find(StyledCanvas).render();
+    expect(canvas.prop('width')).toEqual(`${window.innerWidth}px`);
+    expect(canvas.prop('height')).toEqual(
       `${window.document.body.clientHeight}px`
     );
   });
 
   it('changes state & rerenders with new sizes on window.resize', () => {
     const component = shallow(<Bg />);
+    let canvas = component.find(StyledCanvas).render();
     const sizeForTest = 100;
+
     expect(component.state('width')).not.toEqual(sizeForTest);
     expect(component.state('height')).not.toEqual(sizeForTest);
-    expect(component.prop('width')).not.toEqual(`${sizeForTest}px`);
-    expect(component.prop('height')).not.toEqual(`${sizeForTest}px`);
+    expect(canvas.prop('width')).not.toEqual(`${sizeForTest}px`);
+    expect(canvas.prop('height')).not.toEqual(`${sizeForTest}px`);
+
     window.resizeTo(sizeForTest, sizeForTest);
+
+    canvas = component.find(StyledCanvas).render();
     expect(component.state('width')).toEqual(sizeForTest);
     expect(component.state('height')).toEqual(sizeForTest);
-    expect(component.prop('width')).toEqual(`${sizeForTest}px`);
-    expect(component.prop('height')).toEqual(`${sizeForTest}px`);
+    expect(canvas.prop('width')).toEqual(`${sizeForTest}px`);
+    expect(canvas.prop('height')).toEqual(`${sizeForTest}px`);
   });
 
-  it('calls componentDidMount', () => {
-    const spyCDM = jest.spyOn(Bg.prototype, 'componentDidMount');
-    shallow(<Bg />);
-    expect(spyCDM).toHaveBeenCalled();
+  it('has status logoIsLoad in state, which changes after logo image loaded', () => {
+    const spyOnLogoLoad = jest.spyOn(Bg.prototype, 'onLogoLoad');
+    const component = shallow(<Bg />);
+    expect(component.state('logoIsLoad')).toEqual(false);
+    expect(spyOnLogoLoad).not.toBeCalled();
+    component.find('img').simulate('load');
+    expect(spyOnLogoLoad).toBeCalledTimes(1);
+    expect(component.state('logoIsLoad')).toEqual(true);
   });
 
-  it('calls draw on mount', () => {
+  it('calls draw when logo loaded', () => {
     const spyDraw = jest.spyOn(Bg.prototype, 'draw');
-    shallow(<Bg />);
+    const component = shallow(<Bg />);
+    spyDraw.mockClear();
+    (component.instance() as Bg).onLogoLoad();
     expect(spyDraw).toHaveBeenCalled();
   });
 
-  it('has onResize handler', () => {
-    const component = shallow(<Bg />).instance() as Bg;
-    const spyOnResize = jest.spyOn(component, 'onResize');
-    component.onResize();
-    expect(spyOnResize).toHaveBeenCalled();
+  it('calls draw on mount', () => {
+    const spyCDM = jest.spyOn(Bg.prototype, 'componentDidMount');
+    const spyDraw = jest.spyOn(Bg.prototype, 'draw');
+    shallow(<Bg />);
+    expect(spyCDM).toHaveBeenCalled();
+    expect(spyDraw).toHaveBeenCalled();
   });
 
   it('calls draw in onResize with debounce', () => {
@@ -107,7 +121,7 @@ describe('<Bg/>', () => {
     expect(spyOnResize).toHaveBeenCalledTimes(1);
   });
 
-  it('removes resize handler on mount', () => {
+  it('removes resize handler on unmount', () => {
     window.removeEventListener = jest.fn();
     const component = shallow(<Bg />);
     expect(window.removeEventListener).not.toHaveBeenCalled();
