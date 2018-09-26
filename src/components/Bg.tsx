@@ -2,7 +2,9 @@ import * as React from 'react';
 import debounce from 'lodash-es/debounce';
 import styled from 'react-emotion';
 
-const StyledCanvas = styled('canvas')`
+import '../static/chance.svg';
+
+export const StyledCanvas = styled('canvas')`
   position: absolute;
   z-index: 0;
 `;
@@ -16,6 +18,7 @@ interface GridConfig {
 interface State {
   readonly width: number;
   readonly height: number;
+  readonly logoIsLoad: boolean;
 }
 
 class Bg extends React.PureComponent<{}, State> {
@@ -28,19 +31,21 @@ class Bg extends React.PureComponent<{}, State> {
   };
 
   onResize = debounce(() => {
-    this.setState(this.getSizes());
-
-    this.draw();
+    this.setState(this.getSizes(), this.draw);
   }, 200);
 
   private canvasRef: React.RefObject<HTMLCanvasElement>;
+  private logoRef: React.RefObject<HTMLImageElement>;
 
   constructor(props: {}) {
     super(props);
 
     this.canvasRef = React.createRef();
+    this.logoRef = React.createRef();
 
-    this.state = this.getSizes();
+    this.state = {...this.getSizes(), logoIsLoad: false};
+
+    this.onLogoLoad = this.onLogoLoad.bind(this);
   }
 
   componentDidMount() {
@@ -75,6 +80,8 @@ class Bg extends React.PureComponent<{}, State> {
       return;
     }
 
+    const logo = this.state.logoIsLoad ? this.logoRef.current : null;
+
     const {ROWS, COLS, COLOR} = this.gridConfig;
     const {width, height} = this.state;
 
@@ -94,18 +101,36 @@ class Bg extends React.PureComponent<{}, State> {
             j < COLS - 1 ? rectWidth : lastRectWidth,
             i < ROWS - 1 ? rectHeight : lastRectHeight
           );
+        } else if (logo !== null) {
+          ctx.drawImage(
+            logo,
+            j * rectWidth +  (rectWidth / 2 - logo.naturalWidth / 2),
+            i * rectHeight +  (rectHeight / 2 - logo.naturalHeight / 2)
+          );
         }
       }
     }
   }
 
+  onLogoLoad() {
+    this.setState({logoIsLoad: true}, this.draw);
+  }
+
   render() {
     return (
-      <StyledCanvas
-        width={`${this.state.width}px`}
-        height={`${this.state.height}px`}
-        innerRef={this.canvasRef}
-      />
+      <div>
+        <img
+          src="./images/chance.svg"
+          ref={this.logoRef}
+          onLoad={this.onLogoLoad}
+          hidden
+        />
+        <StyledCanvas
+          width={`${this.state.width}px`}
+          height={`${this.state.height}px`}
+          innerRef={this.canvasRef}
+        />
+      </div>
     );
   }
 }
