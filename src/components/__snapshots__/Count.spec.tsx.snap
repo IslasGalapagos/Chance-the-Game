@@ -1,0 +1,158 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Count/> overlap one element be another, depends on score 1`] = `
+.emotion-0 {
+  font-family: Arial;
+  font-size: 36px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.emotion-4 {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+
+.emotion-1 {
+  line-height: 60px;
+  left: 5px;
+  z-index: 1;
+  background-color: #FCFFDA;
+  color: #49404E;
+  border: 2px solid #49404E;
+}
+
+.emotion-3 {
+  line-height: 64px;
+  left: -5px;
+  z-index: 0;
+  background-color: #49404E;
+  color: #FCFFDA;
+}
+
+<div
+  className="emotion-4"
+>
+  <div
+    className="emotion-0 emotion-1"
+  >
+    2
+  </div>
+  <div
+    className="emotion-0 emotion-3"
+  >
+    1
+  </div>
+</div>
+`;
+
+exports[`<Count/> overlap one element be another, depends on score 2`] = `
+.emotion-0 {
+  font-family: Arial;
+  font-size: 36px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.emotion-4 {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+
+.emotion-1 {
+  line-height: 60px;
+  left: 5px;
+  z-index: 0;
+  background-color: #FCFFDA;
+  color: #49404E;
+  border: 2px solid #49404E;
+}
+
+.emotion-3 {
+  line-height: 64px;
+  left: -5px;
+  z-index: 1;
+  background-color: #49404E;
+  color: #FCFFDA;
+}
+
+<div
+  className="emotion-4"
+>
+  <div
+    className="emotion-0 emotion-1"
+  >
+    1
+  </div>
+  <div
+    className="emotion-0 emotion-3"
+  >
+    2
+  </div>
+</div>
+`;
+
+exports[`<Count/> renders correctly 1`] = `
+.emotion-0 {
+  font-family: Arial;
+  font-size: 36px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.emotion-4 {
+  position: absolute;
+  top: 35px;
+  left: 35px;
+}
+
+.emotion-1 {
+  line-height: 60px;
+  left: 1px;
+  background-color: #FCFFDA;
+  color: #49404E;
+  border: 2px solid #49404E;
+}
+
+.emotion-3 {
+  line-height: 64px;
+  left: -1px;
+  background-color: #49404E;
+  color: #FCFFDA;
+}
+
+<div
+  className="emotion-4"
+>
+  <div
+    className="emotion-0 emotion-1"
+  >
+    0
+  </div>
+  <div
+    className="emotion-0 emotion-3"
+  >
+    0
+  </div>
+</div>
+`;
