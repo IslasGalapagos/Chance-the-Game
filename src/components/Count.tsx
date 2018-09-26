@@ -19,7 +19,7 @@ interface CountNumProps {
   score: number;
 }
 
-export const CountNum: React.SFC<CountNumProps> = ({className, score}) => (
+const CountNum: React.SFC<CountNumProps> = ({className, score}) => (
   <div className={`${CountNumCSS} ${className}`}>{score}</div>
 );
 
@@ -55,7 +55,7 @@ export const StyledCountNum = styled(CountNum)<StyledCountNumProps>`
   border: ${props => (props.user ? '2px solid #49404E' : '')};
 `;
 
-export const StyledCountWrapper = styled('div')`
+const StyledCountWrapper = styled('div')`
   position: absolute;
   top: 35px;
   left: 35px;
