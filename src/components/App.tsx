@@ -5,10 +5,12 @@ import Count from './Count';
 class App extends React.PureComponent<{}, {}> {
   render() {
     return (
-      <React.Fragment>
-        <Bg />
-        <Count score={[0, 0]} />
-      </React.Fragment>
+      <React.StrictMode>
+        <React.Fragment>
+          <Bg />
+          <Count score={[0, 0]} />
+        </React.Fragment>
+      </React.StrictMode>
     );
   }
 }
