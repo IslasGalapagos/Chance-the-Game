@@ -10,8 +10,6 @@ exports[`<Count/> overlap one element be another, depends on score 1`] = `
   width: 64px;
   box-sizing: border-box;
   border-radius: 50%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .emotion-4 {
@@ -63,8 +61,6 @@ exports[`<Count/> overlap one element be another, depends on score 2`] = `
   width: 64px;
   box-sizing: border-box;
   border-radius: 50%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .emotion-4 {
@@ -116,8 +112,6 @@ exports[`<Count/> renders correctly 1`] = `
   width: 64px;
   box-sizing: border-box;
   border-radius: 50%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 .emotion-4 {
