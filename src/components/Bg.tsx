@@ -118,7 +118,7 @@ class Bg extends React.PureComponent<{}, State> {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <img
           src="./images/chance.svg"
           ref={this.logoRef}
@@ -130,7 +130,7 @@ class Bg extends React.PureComponent<{}, State> {
           height={`${this.state.height}px`}
           innerRef={this.canvasRef}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }
