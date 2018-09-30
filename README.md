@@ -9,3 +9,4 @@
 - [ ] Add favicon
 - [ ] ? Add shallow snapshots for some tests
 - [ ] Add Redux store
+- [ ] Add Score
