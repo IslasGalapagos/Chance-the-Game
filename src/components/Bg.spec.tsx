@@ -75,7 +75,7 @@ describe('<Bg/>', () => {
     expect(canvas.prop('height')).toEqual(`${sizeForTest}px`);
   });
 
-  it('has status logoIsLoad in state, which changes after logo image loaded', () => {
+  it('has status logoIsLoad in state, which changes after logo image is loaded', () => {
     const spyOnLogoLoad = jest.spyOn(Bg.prototype, 'onLogoLoad');
     const component = shallow(<Bg />);
     expect(component.state('logoIsLoad')).toEqual(false);
