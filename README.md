@@ -8,3 +8,4 @@
 - [ ] Add game name and description to repo
 - [ ] Add favicon
 - [ ] ? Add shallow snapshots for some tests
+- [ ] Add Redux store
