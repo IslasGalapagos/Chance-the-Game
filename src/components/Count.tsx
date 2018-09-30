@@ -10,8 +10,6 @@ const CountNumCSS = css`
   width: 64px;
   box-sizing: border-box;
   border-radius: 50%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 `;
 
 interface CountNumProps {
