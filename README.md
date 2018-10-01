@@ -10,3 +10,4 @@
 - [ ] ? Add shallow snapshots for some tests
 - [ ] Add Redux store
 - [ ] Add Score
+- [ ] ? Change description of some tests to more schematic
