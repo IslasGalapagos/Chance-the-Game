@@ -1,36 +1,15 @@
+/*
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+*/
+
 import * as React from 'react';
-import styled, {css} from 'react-emotion';
+import {StyledWrapper, StyledHeader} from './StartingScreen.styles';
 import LetsStartBlock from './LetsStartBlock';
 import InputBlock from './InputBlock';
-
-const StyledWrapper = styled('div')`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-
-  width: 100%;
-  height: 100%;
-  padding: 35px;
-  box-sizing: border-box;
-
-  background-color: #eafff2;
-`;
-
-export const fontStyles = css`
-  font-family: Arial;
-  font-size: 35px;
-
-  color: #333;
-`;
-
-export const margin = css`
-  margin: 0 0 25px 0;
-`;
-
-const StyledH1 = styled('h1')`
-  font-weight: normal;
-`;
 
 export const enum Header {
   Question = "What's your name?",
@@ -98,8 +77,10 @@ class StartingScreen extends React.PureComponent<{}, State> {
     const {header, name, inputIsFocused} = this.state;
 
     return (
-      <StyledWrapper>
-        <StyledH1 className={`${fontStyles} ${margin}`}>{header}</StyledH1>
+      <StyledWrapper hidden>
+        <StyledHeader>
+          {header}
+        </StyledHeader>
         <InputBlock
           isEmpty={name.length === 0}
           name={name}

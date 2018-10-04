@@ -1,47 +1,20 @@
+/*
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+*/
+
 import * as React from 'react';
-import styled, {keyframes} from 'react-emotion';
-import {State as StartingScrennState, fontStyles, margin} from './StartingScreen';
+import {
+  StyledInputWrapper,
+  StyledInput,
+  AnimatedLabel
+} from './InputBlock.styles';
 
-interface StyledProps {
-  isEmpty: boolean;
-}
-
-export const StyledInputWrapper = styled('div')<StyledProps>`
-  input {
-    border-bottom-color: ${({isEmpty}) => (isEmpty ? '#f55662' : '')};
-  }
-`;
-
-const animatedLabelKeyframes = keyframes`
-  from {
-    left: 0;
-  }
-
-  50% {
-    left: 4px;
-  }
-
-  to {
-    left: 0;
-  }
-`;
-
-const AnimatedLabel = styled('label')`
-  position: relative;
-  animation: ${animatedLabelKeyframes} 0.7s ease infinite;
-`;
-
-export const StyledInput = styled('input')`
-  width: 241px;
-  margin-left: 20px;
-
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  outline: none;
-`;
-
-export interface Props extends Pick<StartingScrennState, 'name'> {
+export interface Props {
+  name: string;
   isEmpty: boolean;
   onInput: (event: React.FormEvent<HTMLInputElement>) => void;
   focus: (isFocused: boolean) => void;
@@ -69,12 +42,9 @@ class InputBlock extends React.PureComponent<Props, {}> {
     const {isEmpty, name, onInput} = this.props;
 
     return (
-      <StyledInputWrapper className={margin} isEmpty={isEmpty}>
-        <AnimatedLabel className={fontStyles} htmlFor="name">
-          &#8680;
-        </AnimatedLabel>
+      <StyledInputWrapper isEmpty={isEmpty}>
+        <AnimatedLabel htmlFor="name">&#8680;</AnimatedLabel>
         <StyledInput
-          className={fontStyles}
           id="name"
           type="text"
           autoComplete="off"

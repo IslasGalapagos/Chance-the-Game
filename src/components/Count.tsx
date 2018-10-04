@@ -1,69 +1,13 @@
+/*
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+*/
+
 import * as React from 'react';
-import styled, {css} from 'react-emotion';
-
-const CountNumCSS = css`
-  font-family: Arial;
-  font-size: 36px;
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  width: 64px;
-  box-sizing: border-box;
-  border-radius: 50%;
-`;
-
-interface CountNumProps {
-  className?: string;
-  score: number;
-}
-
-const CountNum: React.SFC<CountNumProps> = ({className, score}) => (
-  <div className={`${CountNumCSS} ${className}`}>{score}</div>
-);
-
-interface StyledCountNumProps {
-  user?: boolean;
-  gameState: string;
-}
-
-export const StyledCountNum = styled(CountNum)<StyledCountNumProps>`
-  line-height: ${props => (props.user ? '60px' : '64px')};
-
-  left: ${props => {
-    if (props.gameState === 'draw') {
-      return props.user ? '1px' : '-1px';
-    }
-
-    return props.user ? '5px' : '-5px';
-  }};
-  z-index: ${props => {
-    if (props.gameState === 'draw') {
-      return '';
-    }
-
-    if (props.user) {
-      return props.gameState === 'user_lead' ? '1' : '0';
-    }
-
-    return props.gameState === 'random_lead' ? '1' : '0';
-  }};
-
-  background-color: ${props => (props.user ? '#FCFFDA' : '#49404E')};
-  color: ${props => (props.user ? '#49404E' : '#FCFFDA')};
-  border: ${props => (props.user ? '2px solid #49404E' : '')};
-`;
-
-const StyledCountWrapper = styled('div')`
-  position: absolute;
-  top: 35px;
-  left: 35px;
-`;
-
-type Score = [number, number];
-
-interface CountProps {
-  score: Score;
-}
+import {StyledWrapper, StyledNum} from './Count.styles';
 
 const enum GameState {
   Draw = 'draw',
@@ -71,34 +15,40 @@ const enum GameState {
   Random = 'random_lead'
 }
 
-const getGameState = (score: Score): GameState => {
-  const diff = score[0] - score[1];
+type Score = [number, number];
 
-  switch (diff === 0 ? 0 : diff / Math.abs(diff)) {
-    case 1:
-      return GameState.User;
-      break;
-    case -1:
-      return GameState.Random;
-      break;
-    case 0:
-      return GameState.Draw;
-      break;
-    default:
-      return GameState.Draw;
-  }
-};
+interface CountProps {
+  score: Score;
+}
 
 class Count extends React.PureComponent<CountProps, {}> {
+  getGameState = (score: Score): GameState => {
+    const diff = score[0] - score[1];
+
+    switch (diff === 0 ? 0 : diff / Math.abs(diff)) {
+      case 1:
+        return GameState.User;
+        break;
+      case -1:
+        return GameState.Random;
+        break;
+      case 0:
+        return GameState.Draw;
+        break;
+      default:
+        return GameState.Draw;
+    }
+  }
+
   render() {
     const {score} = this.props;
-    const gameState = getGameState(score);
+    const gameState = this.getGameState(score);
 
     return (
-      <StyledCountWrapper>
-        <StyledCountNum score={score[0]} gameState={gameState} user />
-        <StyledCountNum score={score[1]} gameState={gameState} />
-      </StyledCountWrapper>
+      <StyledWrapper>
+        <StyledNum score={score[0]} gameState={gameState} user/>
+        <StyledNum score={score[1]} gameState={gameState}/>
+      </StyledWrapper>
     );
   }
 }
