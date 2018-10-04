@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Ball /> renders correctly 1`] = `
+.emotion-0 {
+  position: absolute;
+  left: 59px;
+  bottom: 20px;
+}
+
+<img
+  alt="ball"
+  className="emotion-0"
+  src="./images/ball-good.svg"
+/>
+`;

@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Head/> renders correctly 1`] = `
+.emotion-0 {
+  position: relative;
+  left: 0;
+  margin-bottom: 85px;
+  -webkit-transition: left 0.2s ease;
+  transition: left 0.2s ease;
+  -webkit-animation: animation-pce971 1s ease infinite;
+  animation: animation-pce971 1s ease infinite;
+}
+
+<div
+  className="emotion-0"
+>
+  <img
+    alt="head"
+    src="/images/head-default.svg"
+  />
+</div>
+`;

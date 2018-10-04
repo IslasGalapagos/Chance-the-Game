@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Game/> renders correctly 1`] = `
+.emotion-5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.emotion-0 {
+  position: relative;
+  left: 0;
+  margin-bottom: 85px;
+  -webkit-transition: left 0.2s ease;
+  transition: left 0.2s ease;
+  -webkit-animation: animation-pce971 1s ease infinite;
+  animation: animation-pce971 1s ease infinite;
+}
+
+.emotion-4 {
+  position: relative;
+  display: block;
+}
+
+.emotion-1 {
+  display: inline-block;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+.emotion-1:hover {
+  -webkit-animation: animation-qym1sx 0.2s ease infinite;
+  animation: animation-qym1sx 0.2s ease infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.emotion-2 {
+  margin: 0 50px;
+  display: inline-block;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+.emotion-2:hover {
+  -webkit-animation: animation-qym1sx 0.2s ease infinite;
+  animation: animation-qym1sx 0.2s ease infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+<div
+  className="emotion-5"
+>
+  <div
+    className="emotion-0"
+  >
+    <img
+      alt="head"
+      src="/images/head-default.svg"
+    />
+  </div>
+  <div
+    className="emotion-4"
+  >
+    <img
+      alt="shell № 1"
+      className="emotion-1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="./images/shell-1.svg"
+    />
+    <img
+      alt="shell № 2"
+      className="emotion-2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="./images/shell-2.svg"
+    />
+    <img
+      alt="shell № 3"
+      className="emotion-1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="./images/shell-3.svg"
+    />
+  </div>
+</div>
+`;

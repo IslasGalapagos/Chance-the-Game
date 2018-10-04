@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Shells/> renders correctly 1`] = `
+.emotion-3 {
+  position: relative;
+  display: block;
+}
+
+.emotion-0 {
+  display: inline-block;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  -webkit-animation: animation-qym1sx 0.2s ease infinite;
+  animation: animation-qym1sx 0.2s ease infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+.emotion-1 {
+  margin: 0 50px;
+  display: inline-block;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+.emotion-1:hover {
+  -webkit-animation: animation-qym1sx 0.2s ease infinite;
+  animation: animation-qym1sx 0.2s ease infinite;
+  -webkit-animation-delay: 0.2s;
+  animation-delay: 0.2s;
+}
+
+<div
+  className="emotion-3"
+>
+  <img
+    alt="shell № 1"
+    className="emotion-0"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[MockFunction]}
+    src="./images/shell-1.svg"
+  />
+  <img
+    alt="shell № 2"
+    className="emotion-1"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[MockFunction]}
+    src="./images/shell-2.svg"
+  />
+  <img
+    alt="shell № 3"
+    className="emotion-0"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[MockFunction]}
+    src="./images/shell-3.svg"
+  />
+</div>
+`;
