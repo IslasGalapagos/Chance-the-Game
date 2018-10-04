@@ -1,0 +1,17 @@
+<!-- 
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+-->
+
+<svg width="187" height="177" viewBox="0 0 187 177" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M76.1318 1.10938L40.3849 22.0273V37.2568L2 59.7617V139.742L63.8423 176H124.618L186.461 139.742V59.7617L147.009 36.6317V22.0273L111.262 1.10938H76.1318Z" fill="white" fill-opacity="0.8"/>
+<path d="M63.3817 96.5527V176M123.091 96.5527V176" stroke="#FFCEF1" stroke-width="2"/>
+<path d="M75.6713 42.9452V81.0897M110.186 42.9452V81.0897" stroke="#FFCEF1" stroke-width="2"/>
+<path d="M146.549 36.6317L186 59.7617L124.158 96.0195H63.3817L1.53943 59.7617L39.9243 37.2568" stroke="#FF9EE4" stroke-width="2" stroke-linejoin="round"/>
+<path d="M1.53943 59.7617V139.742L63.3817 176H124.158L186 139.742V59.7617" stroke="#FF9EE4" stroke-width="2"/>
+<path d="M39.9243 22.0273L75.6713 42.9453H110.802L146.549 22.0273L110.802 1.10938H75.6713L39.9243 22.0273Z" stroke="#FF9EE4" stroke-width="2" stroke-linejoin="round"/>
+<path d="M39.9243 22.0273V60.1719L75.6713 81.0898H110.802L146.549 60.1719V22.0273" stroke="#FF9EE4" stroke-width="2"/>
+</svg>
