@@ -1,3 +1,11 @@
+/*
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+*/
+
 import {shallow, mount} from 'enzyme';
 import * as React from 'react';
 import InputBlock, {Props} from './InputBlock';
@@ -10,11 +18,20 @@ const props: Props = {
 };
 
 describe('<InputBlock/>', () => {
+  // PROPS
   it(`sets props.isEmpty to wrapper's isEmpty prop`, () => {
     const component = shallow(<InputBlock {...props} />);
     expect(component.prop('isEmpty')).toEqual(props.isEmpty);
   });
 
+  it(`sets props.name to input's value`, () => {
+    const component = mount(<InputBlock {...props} />);
+    expect(component.find('input').prop('value')).toEqual('Diophantus');
+    component.setProps({name: 'Pythagoras'});
+    expect(component.find('input').prop('value')).toEqual('Pythagoras');
+  });
+
+  // EVENT HANDLERS
   it(`calls props.onInput on input change event`, () => {
     const spyOnInput = jest.spyOn(props, 'onInput');
     const component = mount(<InputBlock {...props} />);
@@ -48,6 +65,7 @@ describe('<InputBlock/>', () => {
     expect(spyOnKeyPressMethod).toBeCalledTimes(1);
   });
 
+  // METHODS
   it(`calls props.focus in InputBlock.focus`, () => {
     const spyFocus = jest.spyOn(props, 'focus');
 
@@ -68,7 +86,7 @@ describe('<InputBlock/>', () => {
     spyFocus.mockRestore();
   });
 
-  it(`blurs input in InputBlock.onKeyPress when keyCode equals 13`, () => {
+  it(`blurs input in InputBlock.onKeyPress when keyCode is equals 13`, () => {
     const component = shallow(<InputBlock {...props} />);
     const instance = component.instance() as InputBlock;
     const onKeyPress = instance.onKeyPress as (
