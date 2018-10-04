@@ -1,3 +1,11 @@
+/*
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+*/
+
 import {shallow, mount} from 'enzyme';
 import * as testRenderer from 'react-test-renderer';
 import * as React from 'react';
@@ -11,23 +19,13 @@ describe('<StartingScreen/>', () => {
     expect(treeAndStyles).toMatchSnapshot();
   });
 
-  it('has initial state with name property which equals empty string', () => {
+  // STATE
+  it(`sets '' to state.name by default`, () => {
     const component = shallow(<StartingScreen />);
     expect(component.state('name')).toEqual('');
   });
 
-  it('hides button by default, shows when name.length not equals 0 & state.inputIsFocused is false', () => {
-    const component = shallow(<StartingScreen />);
-    expect(component.find(LetsStartBlock).length).toEqual(0);
-    component.setState({name: 'Diophantus'});
-    expect(component.find(LetsStartBlock).length).toEqual(0);
-    component.setState({inputIsFocused: false});
-    expect(component.find(LetsStartBlock).length).toEqual(1);
-    component.setState({inputIsFocused: true});
-    component.setState({name: ''});
-    expect(component.find(LetsStartBlock).length).toEqual(0);
-  });
-
+  // HEADER
   it(`changes text of header-question when state.inputIsFocused is true & state.name changes to empty string`, () => {
     const component = mount(<StartingScreen />);
     const header = component.find('h1');
@@ -49,7 +47,21 @@ describe('<StartingScreen/>', () => {
     expect(header.text()).toEqual(Header.Question);
   });
 
-  it('sets isEmpty prop to input wrapper when name.length equals 0', () => {
+  // BUTTON
+  it('hides button by default, shows when name.length is not equals 0 & state.inputIsFocused is false', () => {
+    const component = shallow(<StartingScreen />);
+    expect(component.find(LetsStartBlock).length).toEqual(0);
+    component.setState({name: 'Diophantus'});
+    expect(component.find(LetsStartBlock).length).toEqual(0);
+    component.setState({inputIsFocused: false});
+    expect(component.find(LetsStartBlock).length).toEqual(1);
+    component.setState({inputIsFocused: true});
+    component.setState({name: ''});
+    expect(component.find(LetsStartBlock).length).toEqual(0);
+  });
+
+  // INPUT
+  it('sets isEmpty prop to input wrapper when name.length is equals 0', () => {
     const component = shallow(<StartingScreen />);
     expect(component.find(InputBlock).prop('isEmpty')).toEqual(true);
     component.setState({name: 'Diophantus'});
@@ -65,6 +77,7 @@ describe('<StartingScreen/>', () => {
     expect(component.find(InputBlock).prop('name')).toEqual('Diophantus');
   });
 
+  // LETSSTART
   it(`sets state.name to LetsStartBlock's prop name`, () => {
     const component = shallow(<StartingScreen />);
     component.setState({name: 'Diophantus'});

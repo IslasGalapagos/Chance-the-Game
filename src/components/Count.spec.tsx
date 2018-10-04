@@ -1,7 +1,16 @@
+/*
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+*/
+
 import {shallow} from 'enzyme';
 import * as testRenderer from 'react-test-renderer';
 import * as React from 'react';
-import Count, {StyledCountNum} from './Count';
+import Count from './Count';
+import {StyledNum} from './Count.styles';
 
 describe('<Count/>', () => {
   it('renders correctly', () => {
@@ -11,69 +20,32 @@ describe('<Count/>', () => {
     expect(treeAndStyles).toMatchSnapshot();
   });
 
+  // PROPS
   it('renders with score from props', () => {
     const component = shallow(<Count score={[1, 2]} />);
-    expect(
-      component
-        .find(StyledCountNum)
-        .first()
-        .render()
-        .text()
-    ).toEqual('1');
-    expect(
-      component
-        .find(StyledCountNum)
-        .last()
-        .render()
-        .text()
-    ).toEqual('2');
+    const Nums = component.find(StyledNum);
+    expect(Nums.at(0).render().text()).toEqual('1');
+    expect(Nums.at(1).render().text()).toEqual('2');
   });
 
   it('overlap one element be another, depends on score', () => {
     const component = shallow(<Count score={[1, 1]} />);
-    expect(
-      component
-        .find(StyledCountNum)
-        .first()
-        .prop('gameState')
-    ).toEqual('draw');
-    expect(
-      component
-        .find(StyledCountNum)
-        .last()
-        .prop('gameState')
-    ).toEqual('draw');
+    let Nums = component.find(StyledNum);
+    expect(Nums.at(0).prop('gameState')).toEqual('draw');
+    expect(Nums.at(1).prop('gameState')).toEqual('draw');
 
     component.setProps({score: [2, 1]});
-    expect(
-      component
-        .find(StyledCountNum)
-        .first()
-        .prop('gameState')
-    ).toEqual('user_lead');
-    expect(
-      component
-        .find(StyledCountNum)
-        .last()
-        .prop('gameState')
-    ).toEqual('user_lead');
+    Nums = component.find(StyledNum);
+    expect(Nums.at(0).prop('gameState')).toEqual('user_lead');
+    expect(Nums.at(1).prop('gameState')).toEqual('user_lead');
 
     const treeAndStyles = testRenderer.create(<Count score={[2, 1]} />);
     expect(treeAndStyles.toJSON()).toMatchSnapshot();
 
     component.setProps({score: [1, 2]});
-    expect(
-      component
-        .find(StyledCountNum)
-        .first()
-        .prop('gameState')
-    ).toEqual('random_lead');
-    expect(
-      component
-        .find(StyledCountNum)
-        .last()
-        .prop('gameState')
-    ).toEqual('random_lead');
+    Nums = component.find(StyledNum);
+    expect(Nums.at(0).prop('gameState')).toEqual('random_lead');
+    expect(Nums.at(1).prop('gameState')).toEqual('random_lead');
 
     treeAndStyles.update(<Count score={[1, 2]} />);
     expect(treeAndStyles.toJSON()).toMatchSnapshot();

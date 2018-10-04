@@ -1,19 +1,18 @@
+/*
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+*/
+
 import {shallow} from 'enzyme';
 import * as React from 'react';
 import * as testRenderer from 'react-test-renderer';
 import debounce from 'lodash-es/debounce';
+import {debouncedMock} from '../../jest/mock-debounce';
 
 import Bg, {StyledCanvas} from './Bg';
-
-type TDebouncedF = () => {};
-let debouncedF: TDebouncedF;
-const debouncedMock = jest.fn(() => debouncedF());
-jest.mock('lodash-es/debounce', () =>
-  jest.fn((fn: TDebouncedF) => {
-    debouncedF = fn;
-    return debouncedMock;
-  })
-);
 
 describe('<Bg/>', () => {
   beforeEach(() => {
@@ -26,12 +25,14 @@ describe('<Bg/>', () => {
     expect(treeAndStyles).toMatchSnapshot();
   });
 
+  // REFS
   it('has a refs', () => {
     const component = shallow(<Bg />);
     expect(component.instance()).toHaveProperty('canvasRef');
     expect(component.instance()).toHaveProperty('logoRef');
   });
 
+  // CONFIG
   it('has config with data for drawing', () => {
     const component = shallow(<Bg />).instance() as Bg;
     expect(component.gridConfig).toEqual(
@@ -43,6 +44,7 @@ describe('<Bg/>', () => {
     );
   });
 
+  // STATE
   it('has initial state with window sizes & renders with these sizes', () => {
     const component = shallow(<Bg />);
     expect(component.state('width')).toEqual(window.innerWidth);
@@ -56,6 +58,7 @@ describe('<Bg/>', () => {
     );
   });
 
+  // EVENT HANDLERS
   it('changes state & rerenders with new sizes on window.resize', () => {
     const component = shallow(<Bg />);
     let canvas = component.find(StyledCanvas).render();
@@ -75,7 +78,7 @@ describe('<Bg/>', () => {
     expect(canvas.prop('height')).toEqual(`${sizeForTest}px`);
   });
 
-  it('has status logoIsLoad in state, which changes after logo image is loaded', () => {
+  it('has state.logoIsLoad, that changes after logo image is loaded', () => {
     const spyOnLogoLoad = jest.spyOn(Bg.prototype, 'onLogoLoad');
     const component = shallow(<Bg />);
     expect(component.state('logoIsLoad')).toEqual(false);
@@ -85,6 +88,7 @@ describe('<Bg/>', () => {
     expect(component.state('logoIsLoad')).toEqual(true);
   });
 
+  // METHODS & LIFECYCLES
   it('calls draw when logo loaded', () => {
     const spyDraw = jest.spyOn(Bg.prototype, 'draw');
     const component = shallow(<Bg />);
