@@ -16,6 +16,7 @@ exports[`<Count/> overlap one element be another, depends on score 1`] = `
   position: absolute;
   top: 35px;
   left: 35px;
+  z-index: 1;
 }
 
 .emotion-1 {
@@ -67,6 +68,7 @@ exports[`<Count/> overlap one element be another, depends on score 2`] = `
   position: absolute;
   top: 35px;
   left: 35px;
+  z-index: 1;
 }
 
 .emotion-1 {
@@ -118,6 +120,7 @@ exports[`<Count/> renders correctly 1`] = `
   position: absolute;
   top: 35px;
   left: 35px;
+  z-index: 1;
 }
 
 .emotion-1 {
