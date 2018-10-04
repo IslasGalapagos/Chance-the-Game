@@ -1,13 +1,16 @@
+/*
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+  Copyright © 2018 Evgeny Sysoletin. All rights reserved.
+*/
+
+// TODO: rewrite to .ts
 import {configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import jsdom from 'jsdom';
 
 configure({adapter: new Adapter()});
-
-const {JSDOM} = jsdom;
-const dom = new JSDOM(
-  '<!DOCTYPE html><html><body><div id="root"></div></body></html>'
-);
 
 window.eval(`
   Object.defineProperty(window.document.body, 'clientHeight', {
@@ -22,6 +25,6 @@ global.document = window.document;
 
 global.window.resizeTo = (width, height) => {
   global.window.innerWidth = width || global.window.innerWidth;
-  global.window.innerHeight = width || global.window.innerHeight;
+  global.window.innerHeight = height || global.window.innerHeight;
   global.window.dispatchEvent(new Event('resize'));
 };
