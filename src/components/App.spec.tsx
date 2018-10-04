@@ -13,6 +13,7 @@ import StartingScreen from './StartingScreen';
 import Bg from './Bg';
 import Count from './Count';
 import Game from './Game';
+import ScreenChecker from './ScreenChecker';
 
 describe('App', () => {
   it('contains <StartingScreen/>', () => {
@@ -33,5 +34,10 @@ describe('App', () => {
   it('contains <Game/>', () => {
     const component = shallow(<App />);
     expect(component.contains(<Game />)).toBeTruthy();
+  });
+
+  it('contains <ScreenChecker/>', () => {
+    const component = shallow(<App />);
+    expect(component.contains(<ScreenChecker />)).toBeTruthy();
   });
 });
