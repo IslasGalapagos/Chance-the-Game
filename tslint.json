@@ -20,7 +20,8 @@
     "quotemark": [true, "single", "avoid-escape", "jsx-double"],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "trailing-comma": false
+    "trailing-comma": false,
+    "jsx-no-multiline-js": false
   },
   "jsRules": {
     "max-line-length": {
