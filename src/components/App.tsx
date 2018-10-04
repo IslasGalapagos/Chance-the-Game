@@ -11,12 +11,14 @@ import StartingScreen from './StartingScreen';
 import Bg from './Bg';
 import Count from './Count';
 import Game from './Game';
+import ScreenChecker from './ScreenChecker';
 
 class App extends React.PureComponent<{}, {}> {
   render() {
     return (
       <React.StrictMode>
         <React.Fragment>
+          <ScreenChecker/>
           <StartingScreen />
           <Count score={[0, 0]} />
           <Game />
