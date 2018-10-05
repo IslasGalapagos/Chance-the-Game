@@ -9,7 +9,7 @@
 import * as React from 'react';
 import StartingScreen from './StartingScreen';
 import Bg from './Bg';
-import Count from './Count';
+import Score from './Score';
 import Game from './Game';
 import ScreenChecker from './ScreenChecker';
 
@@ -20,7 +20,7 @@ class App extends React.PureComponent<{}, {}> {
         <React.Fragment>
           <ScreenChecker/>
           <StartingScreen />
-          <Count score={[0, 0]} />
+          <Score score={[0, 0]} />
           <Game />
           <Bg />
         </React.Fragment>

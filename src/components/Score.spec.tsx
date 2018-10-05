@@ -9,27 +9,27 @@
 import {shallow} from 'enzyme';
 import * as testRenderer from 'react-test-renderer';
 import * as React from 'react';
-import Count from './Count';
-import {StyledNum} from './Count.styles';
+import Score from './Score';
+import {StyledNum} from './Score.styles';
 
-describe('<Count/>', () => {
+describe('<Score/>', () => {
   it('renders correctly', () => {
     const treeAndStyles = testRenderer
-      .create(<Count score={[0, 0]} />)
+      .create(<Score score={[0, 0]} />)
       .toJSON();
     expect(treeAndStyles).toMatchSnapshot();
   });
 
   // PROPS
   it('renders with score from props', () => {
-    const component = shallow(<Count score={[1, 2]} />);
+    const component = shallow(<Score score={[1, 2]} />);
     const Nums = component.find(StyledNum);
     expect(Nums.at(0).render().text()).toEqual('1');
     expect(Nums.at(1).render().text()).toEqual('2');
   });
 
   it('overlap one element be another, depends on score', () => {
-    const component = shallow(<Count score={[1, 1]} />);
+    const component = shallow(<Score score={[1, 1]} />);
     let Nums = component.find(StyledNum);
     expect(Nums.at(0).prop('gameState')).toEqual('draw');
     expect(Nums.at(1).prop('gameState')).toEqual('draw');
@@ -39,7 +39,7 @@ describe('<Count/>', () => {
     expect(Nums.at(0).prop('gameState')).toEqual('user_lead');
     expect(Nums.at(1).prop('gameState')).toEqual('user_lead');
 
-    const treeAndStyles = testRenderer.create(<Count score={[2, 1]} />);
+    const treeAndStyles = testRenderer.create(<Score score={[2, 1]} />);
     expect(treeAndStyles.toJSON()).toMatchSnapshot();
 
     component.setProps({score: [1, 2]});
@@ -47,7 +47,7 @@ describe('<Count/>', () => {
     expect(Nums.at(0).prop('gameState')).toEqual('random_lead');
     expect(Nums.at(1).prop('gameState')).toEqual('random_lead');
 
-    treeAndStyles.update(<Count score={[1, 2]} />);
+    treeAndStyles.update(<Score score={[1, 2]} />);
     expect(treeAndStyles.toJSON()).toMatchSnapshot();
   });
 });

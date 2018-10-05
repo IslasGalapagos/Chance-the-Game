@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Count/> overlap one element be another, depends on score 1`] = `
+exports[`<Score/> overlap one element be another, depends on score 1`] = `
 .emotion-0 {
   font-family: Arial;
   font-size: 36px;
@@ -52,7 +52,7 @@ exports[`<Count/> overlap one element be another, depends on score 1`] = `
 </div>
 `;
 
-exports[`<Count/> overlap one element be another, depends on score 2`] = `
+exports[`<Score/> overlap one element be another, depends on score 2`] = `
 .emotion-0 {
   font-family: Arial;
   font-size: 36px;
@@ -104,7 +104,7 @@ exports[`<Count/> overlap one element be another, depends on score 2`] = `
 </div>
 `;
 
-exports[`<Count/> renders correctly 1`] = `
+exports[`<Score/> renders correctly 1`] = `
 .emotion-0 {
   font-family: Arial;
   font-size: 36px;

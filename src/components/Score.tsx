@@ -7,7 +7,7 @@
 */
 
 import * as React from 'react';
-import {StyledWrapper, StyledNum} from './Count.styles';
+import {StyledWrapper, StyledNum} from './Score.styles';
 
 const enum GameState {
   Draw = 'draw',
@@ -15,14 +15,14 @@ const enum GameState {
   Random = 'random_lead'
 }
 
-type Score = [number, number];
+type ScoreT = [number, number];
 
-interface CountProps {
-  score: Score;
+interface Props {
+  score: ScoreT;
 }
 
-class Count extends React.PureComponent<CountProps, {}> {
-  getGameState = (score: Score): GameState => {
+class Score extends React.PureComponent<Props, {}> {
+  getGameState = (score: ScoreT): GameState => {
     const diff = score[0] - score[1];
 
     switch (diff === 0 ? 0 : diff / Math.abs(diff)) {
@@ -53,4 +53,4 @@ class Count extends React.PureComponent<CountProps, {}> {
   }
 }
 
-export default Count;
+export default Score;

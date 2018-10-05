@@ -11,7 +11,7 @@ import {shallow} from 'enzyme';
 import App from './App';
 import StartingScreen from './StartingScreen';
 import Bg from './Bg';
-import Count from './Count';
+import Score from './Score';
 import Game from './Game';
 import ScreenChecker from './ScreenChecker';
 
@@ -26,9 +26,9 @@ describe('App', () => {
     expect(component.contains(<Bg />)).toBeTruthy();
   });
 
-  it('contains <Count/>', () => {
+  it('contains <Score/>', () => {
     const component = shallow(<App />);
-    expect(component.contains(<Count score={[0, 0]} />)).toBeTruthy();
+    expect(component.contains(<Score score={[0, 0]} />)).toBeTruthy();
   });
 
   it('contains <Game/>', () => {
