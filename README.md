@@ -9,7 +9,7 @@
 - [ ] Add favicon
 - [ ] ? Add shallow snapshots for some tests
 - [ ] Add Redux store
-- [ ] Add Score
+- [x] Add ~~Score~~ TotalScore
 - [ ] ? Change description of some tests to more schematic
 
 ## License
