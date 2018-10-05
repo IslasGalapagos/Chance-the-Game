@@ -21,18 +21,19 @@ const StyledStub = styled('div')`
   width: 100%;
   height: 100%;
 
-  background: #663399;
+  background: #0000B1;
 
   span {
-    font-family: Arial;
-    font-size: 30px;
+    font-family: 'Courier New', Courer;
+    font-size: 25px;
+    font-weight: bold;
     text-align: center;
 
     padding: 0 30px;
 
     color: #FFF;
 
-    @media (min-width: 7400px) {
+    @media (min-width: 740px) {
       padding: 0;
     }
   }
