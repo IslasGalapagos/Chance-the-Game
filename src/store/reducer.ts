@@ -14,14 +14,14 @@ type TupleNum = [number, number];
 export interface State {
   readonly name: string;
   readonly score: TupleNum;
-  readonly coefficient: TupleNum;
+  readonly coefficients: TupleNum;
   readonly totalScore: TupleNum;
 }
 
 const initialState: Readonly<State> = {
   name: '',
   score: [0, 0],
-  coefficient: [1, 1],
+  coefficients: [1, 1],
   totalScore: [0, 0]
 };
 
@@ -35,8 +35,8 @@ const reducer = (state: State = initialState, action: Actions): State => {
     case getType(actions.setScore):
       return {...state, ...{score: action.payload}};
 
-    case getType(actions.setCoefficient):
-      return {...state, ...{coefficient: action.payload}};
+    case getType(actions.setCoefficients):
+      return {...state, ...{coefficients: action.payload}};
 
     case getType(actions.setTotalScore):
       return {...state, ...{totalScore: action.payload}};

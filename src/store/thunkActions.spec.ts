@@ -8,7 +8,7 @@
 
 import {
   checkAndSetScore,
-  checkAndSetCoefficient,
+  checkAndSetCoefficients,
   computeAndSetTotalScore
 } from './thunkActions';
 
@@ -32,27 +32,27 @@ describe('actions', () => {
     expect(dispatch.mock.calls[1][0].payload).toEqual([0, 0]);
   });
 
-  it('has checkAndSetCoefficient that compare the value with the previous result', () => {
+  it('has checkAndSetCoefficients that compare the value with the previous result', () => {
     const dispatch = jest.fn();
     const getState = jest.fn();
-    getState.mockReturnValueOnce({coefficient: [1, 1]});
-    getState.mockReturnValueOnce({coefficient: [1, 1]});
-    getState.mockReturnValueOnce({coefficient: [5, 1]});
-    getState.mockReturnValueOnce({coefficient: [1, 5]});
+    getState.mockReturnValueOnce({coefficients: [1, 1]});
+    getState.mockReturnValueOnce({coefficients: [1, 1]});
+    getState.mockReturnValueOnce({coefficients: [5, 1]});
+    getState.mockReturnValueOnce({coefficients: [1, 5]});
 
-    checkAndSetCoefficient(true)(dispatch, getState, null);
+    checkAndSetCoefficients(true)(dispatch, getState, null);
     expect(dispatch).toBeCalledTimes(1);
     expect(dispatch.mock.calls[0][0].payload).toEqual([2, 1]);
 
-    checkAndSetCoefficient(false)(dispatch, getState, null);
+    checkAndSetCoefficients(false)(dispatch, getState, null);
     expect(dispatch).toBeCalledTimes(2);
     expect(dispatch.mock.calls[1][0].payload).toEqual([1, 2]);
 
-    checkAndSetCoefficient(false)(dispatch, getState, null);
+    checkAndSetCoefficients(false)(dispatch, getState, null);
     expect(dispatch).toBeCalledTimes(3);
     expect(dispatch.mock.calls[2][0].payload).toEqual([1, 2]);
 
-    checkAndSetCoefficient(true)(dispatch, getState, null);
+    checkAndSetCoefficients(true)(dispatch, getState, null);
     expect(dispatch).toBeCalledTimes(4);
     expect(dispatch.mock.calls[3][0].payload).toEqual([2, 1]);
   });
@@ -60,10 +60,10 @@ describe('actions', () => {
   it('has computeAndSetTotalScore that multiply constant value on cofficient', () => {
     const dispatch = jest.fn();
     const getState = jest.fn();
-    getState.mockReturnValueOnce({coefficient: [1, 1], totalScore: [0, 0]});
-    getState.mockReturnValueOnce({coefficient: [1, 1], totalScore: [0, 0]});
-    getState.mockReturnValueOnce({coefficient: [5, 1], totalScore: [0, 0]});
-    getState.mockReturnValueOnce({coefficient: [1, 5], totalScore: [0, 0]});
+    getState.mockReturnValueOnce({coefficients: [1, 1], totalScore: [0, 0]});
+    getState.mockReturnValueOnce({coefficients: [1, 1], totalScore: [0, 0]});
+    getState.mockReturnValueOnce({coefficients: [5, 1], totalScore: [0, 0]});
+    getState.mockReturnValueOnce({coefficients: [1, 5], totalScore: [0, 0]});
 
     computeAndSetTotalScore(true, 50)(dispatch, getState, null);
     expect(dispatch).toBeCalledTimes(1);

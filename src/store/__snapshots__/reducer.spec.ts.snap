@@ -2,7 +2,7 @@
 
 exports[`reducer has initial state 1`] = `
 Object {
-  "coefficient": Array [
+  "coefficients": Array [
     1,
     1,
   ],

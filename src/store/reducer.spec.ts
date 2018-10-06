@@ -7,7 +7,7 @@
 */
 
 import reducer from './reducer';
-import {setName, setScore, setCoefficient, setTotalScore} from './actions';
+import {setName, setScore, setCoefficients, setTotalScore} from './actions';
 
 const initialState = reducer(undefined, {} as any);
 
@@ -28,10 +28,10 @@ describe('reducer', () => {
     expect(state.score).toEqual([2, 1]);
   });
 
-  it('sets coefficient', () => {
-    const action = setCoefficient([2, 1]);
+  it('sets coefficients', () => {
+    const action = setCoefficients([2, 1]);
     const state = reducer(initialState, action);
-    expect(state.coefficient).toEqual([2, 1]);
+    expect(state.coefficients).toEqual([2, 1]);
   });
 
   it('sets totalScore', () => {

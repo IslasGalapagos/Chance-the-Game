@@ -6,7 +6,7 @@
   Copyright © 2018 Evgeny Sysoletin. All rights reserved.
 */
 
-import {setName, setScore, setCoefficient, setTotalScore} from './actions';
+import {setName, setScore, setCoefficients, setTotalScore} from './actions';
 
 describe('actions', () => {
   it('has setName', () => {
@@ -25,10 +25,10 @@ describe('actions', () => {
     });
   });
 
-  it('has setCoefficient', () => {
-    const action = setCoefficient([1, 2]);
+  it('has setCoefficients', () => {
+    const action = setCoefficients([1, 2]);
     expect(action).toEqual({
-      type: 'SET_COEFFICIENT',
+      type: 'SET_COEFFICIENTS',
       payload: [1, 2]
     });
   });

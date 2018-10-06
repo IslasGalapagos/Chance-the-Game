@@ -8,7 +8,7 @@
 
 import {StateType} from 'typesafe-actions';
 import {ThunkAction} from 'redux-thunk';
-import {setScore, setCoefficient, setTotalScore} from './actions';
+import {setScore, setCoefficients, setTotalScore} from './actions';
 import reducer from './reducer';
 
 type State = StateType<typeof reducer>;
@@ -40,24 +40,26 @@ export const checkAndSetScore = (isWin: boolean): ThunkSetScore => (
   }
 };
 
-type ThunkSetCoefficient = ThunkAction<
+type ThunkSetCoefficients = ThunkAction<
   void,
   State,
   null,
-  ReturnType<typeof setCoefficient>
+  ReturnType<typeof setCoefficients>
 >;
 
-export const checkAndSetCoefficient = (isWin: boolean): ThunkSetCoefficient => (
-  dispatch,
-  getState
-) => {
-  const {coefficient} = getState();
-  const newCoefficient: typeof coefficient = [coefficient[0], coefficient[1]];
+export const checkAndSetCoefficients = (
+  isWin: boolean
+): ThunkSetCoefficients => (dispatch, getState) => {
+  const {coefficients} = getState();
+  const newCoefficients: typeof coefficients = [
+    coefficients[0],
+    coefficients[1]
+  ];
 
-  newCoefficient[isWin ? 0 : 1] += 1;
-  newCoefficient[!isWin ? 0 : 1] = 1;
+  newCoefficients[isWin ? 0 : 1] += 1;
+  newCoefficients[!isWin ? 0 : 1] = 1;
 
-  dispatch(setCoefficient(newCoefficient));
+  dispatch(setCoefficients(newCoefficients));
 };
 
 type ThunkSetTotalScore = ThunkAction<
@@ -71,12 +73,12 @@ export const computeAndSetTotalScore = (
   isWin: boolean,
   scoreNum: number
 ): ThunkSetTotalScore => (dispatch, getState) => {
-  const {coefficient, totalScore} = getState();
+  const {coefficients, totalScore} = getState();
   const newTotalScore: typeof totalScore = [totalScore[0], totalScore[1]];
 
   const scoringIndex = isWin ? 0 : 1;
 
-  newTotalScore[scoringIndex] += coefficient[scoringIndex] * scoreNum;
+  newTotalScore[scoringIndex] += coefficients[scoringIndex] * scoreNum;
 
   dispatch(setTotalScore(newTotalScore));
 };
