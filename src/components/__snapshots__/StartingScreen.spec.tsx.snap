@@ -52,7 +52,6 @@ exports[`<StartingScreen/> renders correctly 1`] = `
 
 <div
   className="emotion-4"
-  hidden={true}
 >
   <h1
     className="emotion-0"

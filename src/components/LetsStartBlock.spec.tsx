@@ -6,13 +6,23 @@
   Copyright © 2018 Evgeny Sysoletin. All rights reserved.
 */
 
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import * as React from 'react';
-import LetsStartBlock from './LetsStartBlock';
+import LetsStartBlock, {Props} from './LetsStartBlock';
+
+const props: Props = {
+  name: 'Diophantus',
+  onSubmit: () => 'onSubmit'
+};
 
 describe('<LetsStartBlock/>', () => {
   it(`prints props.name in component's text`, () => {
-    const component = shallow(<LetsStartBlock name="Diophantus" />);
+    const component = shallow(<LetsStartBlock {...props} />);
     expect(component.find('span').text()).toEqual('Diophantus');
+  });
+
+  it(`sets props.onSubmit to button's onClick`, () => {
+    const component = mount(<LetsStartBlock {...props} />);
+    expect(component.find('button').prop('onClick')).toEqual(props.onSubmit);
   });
 });
