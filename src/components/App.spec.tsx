@@ -11,8 +11,8 @@ import {shallow} from 'enzyme';
 import App from './App';
 import StartingScreen from './StartingScreenContainer';
 import Bg from './Bg';
-import Score from './Score';
-import TotalScore from './TotalScore';
+import Score from './ScoreContainer';
+import TotalScore from './TotalScoreContainer';
 import Game from './Game';
 import ScreenChecker from './ScreenChecker';
 
@@ -29,7 +29,7 @@ describe('App', () => {
 
   it('contains <Score/>', () => {
     const component = shallow(<App />);
-    expect(component.contains(<Score score={[0, 0]} />)).toBeTruthy();
+    expect(component.contains(<Score />)).toBeTruthy();
   });
 
   it('contains <Game/>', () => {
@@ -44,10 +44,6 @@ describe('App', () => {
 
   it('contains <TotalScore/>', () => {
     const component = shallow(<App />);
-    expect(
-      component.contains(
-        <TotalScore name="Diophantus" score={[150, 50]} coefficients={[5, 1]} />
-      )
-    ).toBeTruthy();
+    expect(component.contains(<TotalScore />)).toBeTruthy();
   });
 });
