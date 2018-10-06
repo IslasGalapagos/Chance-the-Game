@@ -13,7 +13,7 @@ exports[`<TotalScore/> renders correctly 1`] = `
 }
 
 .emotion-0 li {
-  font-family: Arial;
+  font-family: 'Helvetica Neu',Helvetica,Arial;
   font-size: 30px;
   position: relative;
   color: #8ec7c3;
@@ -38,7 +38,7 @@ exports[`<TotalScore/> renders correctly 1`] = `
 .emotion-0 li span:before {
   content: '';
   position: absolute;
-  top: 9px;
+  top: 10px;
   left: 5px;
   width: 6px;
   height: 6px;

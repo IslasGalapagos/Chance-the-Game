@@ -2,7 +2,7 @@
 
 exports[`<Score/> overlap one element be another, depends on score 1`] = `
 .emotion-0 {
-  font-family: Arial;
+  font-family: 'Helvetica Neu',Helvetica,Arial;
   font-size: 36px;
   text-align: center;
   position: relative;
@@ -54,7 +54,7 @@ exports[`<Score/> overlap one element be another, depends on score 1`] = `
 
 exports[`<Score/> overlap one element be another, depends on score 2`] = `
 .emotion-0 {
-  font-family: Arial;
+  font-family: 'Helvetica Neu',Helvetica,Arial;
   font-size: 36px;
   text-align: center;
   position: relative;
@@ -106,7 +106,7 @@ exports[`<Score/> overlap one element be another, depends on score 2`] = `
 
 exports[`<Score/> renders correctly 1`] = `
 .emotion-0 {
-  font-family: Arial;
+  font-family: 'Helvetica Neu',Helvetica,Arial;
   font-size: 36px;
   text-align: center;
   position: relative;
