@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer has initial state 1`] = `
+Object {
+  "coefficient": Array [
+    1,
+    1,
+  ],
+  "name": "",
+  "score": Array [
+    0,
+    0,
+  ],
+  "totalScore": Array [
+    0,
+    0,
+  ],
+}
+`;
