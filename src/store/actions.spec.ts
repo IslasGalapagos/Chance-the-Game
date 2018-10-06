@@ -8,8 +8,6 @@
 
 import {setName, setScore, setCoefficient, setTotalScore} from './actions';
 
-jest.useFakeTimers();
-
 describe('actions', () => {
   it('has setName', () => {
     const action = setName('Diophantus');
