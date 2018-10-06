@@ -14,7 +14,7 @@ import {
 } from './InputBlock.styles';
 
 export interface Props {
-  name: string;
+  inputVal: string;
   isEmpty: boolean;
   onInput: (event: React.FormEvent<HTMLInputElement>) => void;
   focus: (isFocused: boolean) => void;
@@ -39,7 +39,7 @@ class InputBlock extends React.PureComponent<Props, {}> {
   }
 
   render() {
-    const {isEmpty, name, onInput} = this.props;
+    const {isEmpty, inputVal, onInput} = this.props;
 
     return (
       <StyledInputWrapper isEmpty={isEmpty}>
@@ -48,7 +48,7 @@ class InputBlock extends React.PureComponent<Props, {}> {
           id="name"
           type="text"
           autoComplete="off"
-          value={name}
+          value={inputVal}
           onChange={onInput}
           onFocus={this.focus}
           onBlur={this.focus}

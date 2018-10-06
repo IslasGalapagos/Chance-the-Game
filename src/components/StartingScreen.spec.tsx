@@ -20,13 +20,14 @@ describe('<StartingScreen/>', () => {
   });
 
   // STATE
-  it(`sets '' to state.name by default`, () => {
+  it(`sets '' to state.inputVal by default`, () => {
     const component = shallow(<StartingScreen />);
-    expect(component.state('name')).toEqual('');
+    expect(component.state('inputVal')).toEqual('');
   });
 
   // HEADER
-  it(`changes text of header-question when state.inputIsFocused is true & state.name changes to empty string`, () => {
+  it(`changes text of header-question when state.inputIsFocused is true
+      & state.inputVal changes to empty string`, () => {
     const component = mount(<StartingScreen />);
     const header = component.find('h1');
     const instance = component.instance() as StartingScreen;
@@ -48,42 +49,46 @@ describe('<StartingScreen/>', () => {
   });
 
   // BUTTON
-  it('hides button by default, shows when name.length is not equals 0 & state.inputIsFocused is false', () => {
+  it('hides button by default, shows when inputVal.length is not equals 0 & state.inputIsFocused is false', () => {
     const component = shallow(<StartingScreen />);
     expect(component.find(LetsStartBlock).length).toEqual(0);
-    component.setState({name: 'Diophantus'});
+    component.setState({inputVal: 'Diophantus'});
     expect(component.find(LetsStartBlock).length).toEqual(0);
     component.setState({inputIsFocused: false});
     expect(component.find(LetsStartBlock).length).toEqual(1);
     component.setState({inputIsFocused: true});
-    component.setState({name: ''});
+    component.setState({inputVal: ''});
     expect(component.find(LetsStartBlock).length).toEqual(0);
   });
 
   // INPUT
-  it('sets isEmpty prop to input wrapper when name.length is equals 0', () => {
+  it('sets isEmpty prop to input wrapper when inputVal.length is equals 0', () => {
     const component = shallow(<StartingScreen />);
     expect(component.find(InputBlock).prop('isEmpty')).toEqual(true);
-    component.setState({name: 'Diophantus'});
+    component.setState({inputVal: 'Diophantus'});
     expect(component.find(InputBlock).prop('isEmpty')).toEqual(false);
-    component.setState({name: ''});
+    component.setState({inputVal: ''});
     expect(component.find(InputBlock).prop('isEmpty')).toEqual(true);
   });
 
-  it(`sets state.name to InputBlock's prop name`, () => {
+  it(`sets state.inputVal to InputBlock's prop inputVal`, () => {
     const component = shallow(<StartingScreen />);
-    expect(component.find(InputBlock).prop('name')).toEqual('');
-    component.setState({name: 'Diophantus'});
-    expect(component.find(InputBlock).prop('name')).toEqual('Diophantus');
+    expect(component.find(InputBlock).prop('inputVal')).toEqual('');
+    component.setState({inputVal: 'Diophantus'});
+    expect(component.find(InputBlock).prop('inputVal')).toEqual('Diophantus');
   });
 
   // LETSSTART
-  it(`sets state.name to LetsStartBlock's prop name`, () => {
+  it(`sets state.inputVal to LetsStartBlock's prop name`, () => {
     const component = shallow(<StartingScreen />);
-    component.setState({name: 'Diophantus'});
+    component.setState({inputVal: 'Diophantus'});
     component.setState({inputIsFocused: false});
-    expect(component.find(LetsStartBlock).prop('name')).toEqual('Diophantus');
-    component.setState({name: 'Pythagoras'});
-    expect(component.find(LetsStartBlock).prop('name')).toEqual('Pythagoras');
+    expect(component.find(LetsStartBlock).prop('name')).toEqual(
+      'Diophantus'
+    );
+    component.setState({inputVal: 'Pythagoras'});
+    expect(component.find(LetsStartBlock).prop('name')).toEqual(
+      'Pythagoras'
+    );
   });
 });

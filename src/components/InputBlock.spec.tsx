@@ -12,7 +12,7 @@ import InputBlock, {Props} from './InputBlock';
 
 const props: Props = {
   isEmpty: false,
-  name: 'Diophantus',
+  inputVal: 'Diophantus',
   onInput: () => 'onInput',
   focus: () => 'focus'
 };
@@ -24,10 +24,10 @@ describe('<InputBlock/>', () => {
     expect(component.prop('isEmpty')).toEqual(props.isEmpty);
   });
 
-  it(`sets props.name to input's value`, () => {
+  it(`sets props.inputVal to input's value`, () => {
     const component = mount(<InputBlock {...props} />);
     expect(component.find('input').prop('value')).toEqual('Diophantus');
-    component.setProps({name: 'Pythagoras'});
+    component.setProps({inputVal: 'Pythagoras'});
     expect(component.find('input').prop('value')).toEqual('Pythagoras');
   });
 

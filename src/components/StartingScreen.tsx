@@ -18,7 +18,7 @@ export const enum Header {
 
 export interface State {
   readonly header: Header;
-  readonly name: string;
+  readonly inputVal: string;
   readonly inputIsFocused: boolean;
 }
 
@@ -30,7 +30,7 @@ class StartingScreen extends React.PureComponent<{}, State> {
 
     this.state = {
       header: Header.Question,
-      name: '',
+      inputVal: '',
       inputIsFocused: true
     };
 
@@ -40,20 +40,20 @@ class StartingScreen extends React.PureComponent<{}, State> {
 
   onInput(event: React.FormEvent<HTMLInputElement>): void {
     const {value} = event.currentTarget;
-    const {name, header} = this.state;
+    const {inputVal, header} = this.state;
 
     let newHeader: Header | null = null;
 
-    if (name.length === 0 && value.length > 0 && header === Header.Asking) {
+    if (inputVal.length === 0 && value.length > 0 && header === Header.Asking) {
       newHeader = Header.Question;
     }
 
-    if (name.length > 0 && value.length === 0 && header === Header.Question) {
+    if (inputVal.length > 0 && value.length === 0 && header === Header.Question) {
       newHeader = Header.Asking;
     }
 
     this.setState({
-      name: name !== value ? value : name,
+      inputVal: inputVal !== value ? value : inputVal,
       header: newHeader || header
     });
   }
@@ -74,7 +74,7 @@ class StartingScreen extends React.PureComponent<{}, State> {
   }
 
   render() {
-    const {header, name, inputIsFocused} = this.state;
+    const {header, inputVal, inputIsFocused} = this.state;
 
     return (
       <StyledWrapper hidden>
@@ -82,12 +82,12 @@ class StartingScreen extends React.PureComponent<{}, State> {
           {header}
         </StyledHeader>
         <InputBlock
-          isEmpty={name.length === 0}
-          name={name}
+          isEmpty={inputVal.length === 0}
+          inputVal={inputVal}
           onInput={this.onInput}
           focus={this.focus}
         />
-        {!!name.length && !inputIsFocused && <LetsStartBlock name={name} />}
+        {!!inputVal.length && !inputIsFocused && <LetsStartBlock name={inputVal} />}
       </StyledWrapper>
     );
   }
