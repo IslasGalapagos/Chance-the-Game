@@ -9,7 +9,7 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
 import App from './App';
-import StartingScreen from './StartingScreen';
+import StartingScreen from './StartingScreenContainer';
 import Bg from './Bg';
 import Score from './Score';
 import TotalScore from './TotalScore';
