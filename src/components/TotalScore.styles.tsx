@@ -32,7 +32,7 @@ const wrapperCSS = css`
   margin: 0;
 
   li {
-    font-family: Arial;
+    font-family: 'Helvetica Neu', Helvetica, Arial;
     font-size: 30px;
 
     position: relative;
@@ -63,7 +63,7 @@ const wrapperCSS = css`
       content: '';
 
       position: absolute;
-      top: 9px;
+      top: 10px;
       left: 5px;
 
       width: 6px;

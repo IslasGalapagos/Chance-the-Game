@@ -23,7 +23,7 @@ export const StyledWrapper = styled('div')`
 `;
 
 export const fontStyles = css`
-  font-family: Arial;
+  font-family: 'Helvetica Neu', Helvetica, Arial;
   font-size: 35px;
 
   color: #333;

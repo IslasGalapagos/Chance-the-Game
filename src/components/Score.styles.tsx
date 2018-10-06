@@ -10,7 +10,7 @@ import * as React from 'react';
 import styled, {css} from 'react-emotion';
 
 const NumCSS = css`
-  font-family: Arial;
+  font-family: 'Helvetica Neu', Helvetica, Arial;
   font-size: 36px;
   text-align: center;
   position: relative;
