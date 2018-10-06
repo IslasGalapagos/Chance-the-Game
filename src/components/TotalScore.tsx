@@ -16,6 +16,10 @@ export interface Props {
 }
 
 class TotalScore extends React.PureComponent<Props, {}> {
+  constructor(props: any) {
+    super(props);
+  }
+
   render() {
     const {name, score, coefficients} = this.props;
 

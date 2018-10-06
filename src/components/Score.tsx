@@ -22,7 +22,11 @@ interface Props {
 }
 
 class Score extends React.PureComponent<Props, {}> {
-  getGameState = (score: ScoreT): GameState => {
+  constructor(props: any) {
+    super(props);
+  }
+
+  getGameState(score: ScoreT): GameState {
     const diff = score[0] - score[1];
 
     switch (diff === 0 ? 0 : diff / Math.abs(diff)) {
@@ -46,8 +50,8 @@ class Score extends React.PureComponent<Props, {}> {
 
     return (
       <StyledWrapper>
-        <StyledNum score={score[0]} gameState={gameState} user/>
-        <StyledNum score={score[1]} gameState={gameState}/>
+        <StyledNum score={score[0]} gameState={gameState} user />
+        <StyledNum score={score[1]} gameState={gameState} />
       </StyledWrapper>
     );
   }
