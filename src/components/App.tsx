@@ -9,8 +9,8 @@
 import * as React from 'react';
 import StartingScreen from './StartingScreenContainer';
 import Bg from './Bg';
-import Score from './Score';
-import TotalScore from './TotalScore';
+import Score from './ScoreContainer';
+import TotalScore from './TotalScoreContainer';
 import Game from './Game';
 import ScreenChecker from './ScreenChecker';
 
@@ -21,12 +21,8 @@ class App extends React.PureComponent<{}, {}> {
         <React.Fragment>
           <ScreenChecker />
           <StartingScreen />
-          <Score score={[0, 0]} />
-          <TotalScore
-            name="Diophantus"
-            score={[150, 50]}
-            coefficients={[5, 1]}
-          />
+          <Score />
+          <TotalScore />
           <Game />
           <Bg />
         </React.Fragment>
