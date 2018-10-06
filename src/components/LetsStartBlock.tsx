@@ -9,21 +9,21 @@
 import * as React from 'react';
 import {StyledWrapper, StyledButton} from './LetsStartBlock.styles';
 
-
-interface Props {
+export interface Props {
   name: string;
+  onSubmit: () => void;
 }
 
 class LetsStartBlock extends React.PureComponent<Props, {}> {
   render() {
-    const {name} = this.props;
+    const {name, onSubmit} = this.props;
 
     return (
       <StyledWrapper>
         Hello,&#32;
         <span>{name}</span>
         .&#32;
-        <StyledButton type="button">
+        <StyledButton type="button" onClick={onSubmit}>
           Let's play!
         </StyledButton>
       </StyledWrapper>

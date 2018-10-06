@@ -10,6 +10,7 @@ import * as React from 'react';
 import {StyledWrapper, StyledHeader} from './StartingScreen.styles';
 import LetsStartBlock from './LetsStartBlock';
 import InputBlock from './InputBlock';
+import {Props} from './StartingScreenContainer';
 
 export const enum Header {
   Question = "What's your name?",
@@ -22,7 +23,7 @@ export interface State {
   readonly inputIsFocused: boolean;
 }
 
-class StartingScreen extends React.PureComponent<{}, State> {
+export class StartingScreen extends React.PureComponent<Props, State> {
   readonly state: State;
 
   constructor(props: any) {
@@ -36,6 +37,7 @@ class StartingScreen extends React.PureComponent<{}, State> {
 
     this.onInput = this.onInput.bind(this);
     this.focus = this.focus.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onInput(event: React.FormEvent<HTMLInputElement>): void {
@@ -48,7 +50,11 @@ class StartingScreen extends React.PureComponent<{}, State> {
       newHeader = Header.Question;
     }
 
-    if (inputVal.length > 0 && value.length === 0 && header === Header.Question) {
+    if (
+      inputVal.length > 0 &&
+      value.length === 0 &&
+      header === Header.Question
+    ) {
       newHeader = Header.Asking;
     }
 
@@ -73,21 +79,26 @@ class StartingScreen extends React.PureComponent<{}, State> {
     });
   }
 
+  onSubmit() {
+    this.props.setName(this.state.inputVal);
+  }
+
   render() {
     const {header, inputVal, inputIsFocused} = this.state;
 
     return (
-      <StyledWrapper hidden>
-        <StyledHeader>
-          {header}
-        </StyledHeader>
+      <StyledWrapper>
+        <StyledHeader>{header}</StyledHeader>
         <InputBlock
           isEmpty={inputVal.length === 0}
           inputVal={inputVal}
           onInput={this.onInput}
           focus={this.focus}
         />
-        {!!inputVal.length && !inputIsFocused && <LetsStartBlock name={inputVal} />}
+        {!!inputVal.length &&
+          !inputIsFocused && (
+            <LetsStartBlock name={inputVal} onSubmit={this.onSubmit} />
+          )}
       </StyledWrapper>
     );
   }
