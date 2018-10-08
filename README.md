@@ -13,4 +13,4 @@
 - [ ] ? Change description of some tests to more schematic
 
 ## License
-See the [License](LICENSE) file for license rights and limitations (Mozilla Public LicenseVersion 2.0).
+See the [License](LICENSE) file for license rights and limitations (Mozilla Public License Version 2.0).
