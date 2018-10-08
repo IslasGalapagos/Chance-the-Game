@@ -6,24 +6,21 @@
   Copyright © 2018 Evgeny Sysoletin. All rights reserved.
 */
 
-import {StateType} from 'typesafe-actions';
 import {ThunkAction} from 'redux-thunk';
 import {setScore, setCoefficients, setTotalScore} from './actions';
-import reducer from './reducer';
+import {State} from './reducer';
 
-type State = StateType<typeof reducer>;
-
-type ThunkSetScore = ThunkAction<
+export type ThunkSetScore = ThunkAction<
   void,
   State,
   null,
-  ReturnType<typeof setScore>
+  ReturnType<typeof setScore | typeof setCoefficients | typeof setTotalScore>
 >;
 
-export const checkAndSetScore = (isWin: boolean): ThunkSetScore => (
-  dispatch,
-  getState
-) => {
+export const checkAndSetScore = (
+  isWin: boolean,
+  prize: number
+): ThunkSetScore => (dispatch, getState) => {
   const {score} = getState();
   const newScore: typeof score = [score[0], score[1]];
 
@@ -32,15 +29,24 @@ export const checkAndSetScore = (isWin: boolean): ThunkSetScore => (
   dispatch(setScore(newScore));
 
   if (newScore.includes(10)) {
-    setTimeout(() => {
-      newScore[isWin ? 0 : 1] = 0;
+    const {totalScore} = getState();
+    const newTotalScore: typeof totalScore = [totalScore[0], totalScore[1]];
 
-      dispatch(setScore(newScore));
+    const scoringIndex = isWin ? 0 : 1;
+
+    newTotalScore[scoringIndex] = totalScore[scoringIndex] + prize;
+
+    dispatch(setTotalScore(newTotalScore));
+
+    dispatch(setCoefficients([0, 0]));
+
+    setTimeout(() => {
+      dispatch(setScore([0, 0]));
     }, 800);
   }
 };
 
-type ThunkSetCoefficients = ThunkAction<
+export type ThunkSetCoefficients = ThunkAction<
   void,
   State,
   null,
@@ -57,12 +63,12 @@ export const checkAndSetCoefficients = (
   ];
 
   newCoefficients[isWin ? 0 : 1] += 1;
-  newCoefficients[!isWin ? 0 : 1] = 1;
+  newCoefficients[!isWin ? 0 : 1] = 0;
 
   dispatch(setCoefficients(newCoefficients));
 };
 
-type ThunkSetTotalScore = ThunkAction<
+export type ThunkSetTotalScore = ThunkAction<
   void,
   State,
   null,
@@ -77,8 +83,10 @@ export const computeAndSetTotalScore = (
   const newTotalScore: typeof totalScore = [totalScore[0], totalScore[1]];
 
   const scoringIndex = isWin ? 0 : 1;
+  const coefficient =
+    coefficients[scoringIndex] > 0 ? coefficients[scoringIndex] : 1;
 
-  newTotalScore[scoringIndex] += coefficients[scoringIndex] * scoreNum;
+  newTotalScore[scoringIndex] += coefficient * scoreNum;
 
   dispatch(setTotalScore(newTotalScore));
 };
