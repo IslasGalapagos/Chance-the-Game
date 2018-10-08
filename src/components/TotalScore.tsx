@@ -30,7 +30,7 @@ class TotalScore extends React.PureComponent<Props, {}> {
           {name}: {score[0]}
         </li>
         <li>
-          {coefficients[1] > 1 && <span>{coefficients[0]}</span>}
+          {coefficients[1] > 1 && <span>{coefficients[1]}</span>}
           Random: {score[1]}
         </li>
       </ul>
