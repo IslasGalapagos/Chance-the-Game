@@ -86,6 +86,6 @@ describe('<TotalScore/>', () => {
     expect(userCoefficient.length).toEqual(0);
     expect(randomCoefficient.length).toEqual(1);
     const randomCoefficientNum = parseInt(randomCoefficient.text(), 10);
-    expect(randomCoefficientNum).toEqual(props.coefficients[1]);
+    expect(randomCoefficientNum).toEqual(3);
   });
 });
