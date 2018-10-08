@@ -10,11 +10,22 @@ import * as React from 'react';
 import StyledWrapper from './Game.styles';
 import Head from './Head';
 import Shells from './Shells';
+import {
+  ThunkSetScore,
+  ThunkSetCoefficients,
+  ThunkSetTotalScore
+} from '../store/thunk-actions';
 
 export const enum Positions {
   Left = 'left',
   Center = 'center',
   Right = 'right'
+}
+
+export interface Props {
+  setScore: (isWin: boolean, prize: number) => ThunkSetScore;
+  setTotalScore: (isWin: boolean, scoreNum: number) => ThunkSetCoefficients;
+  setCoefficients: (isWin: boolean) => ThunkSetTotalScore;
 }
 
 export interface State {
@@ -24,7 +35,10 @@ export interface State {
   readonly isWin: boolean | null;
 }
 
-class Game extends React.PureComponent<{}, State> {
+class Game extends React.PureComponent<Props, State> {
+  static readonly SCORE_NUM: number = 50;
+  static readonly PRIZE: number = 500;
+
   readonly state: State;
 
   constructor(props: any) {
@@ -40,6 +54,7 @@ class Game extends React.PureComponent<{}, State> {
     this.move = this.move.bind(this);
     this.onChoose = this.onChoose.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.updateStore = this.updateStore.bind(this);
   }
 
   move(position: Positions): void {
@@ -56,9 +71,11 @@ class Game extends React.PureComponent<{}, State> {
   }
 
   onChoose(position: Positions): void {
+    const isWin = position === this.random();
+
     this.setState({
       chosenPosition: position,
-      isWin: position === this.random()
+      isWin
     });
 
     setTimeout(() => {
@@ -67,6 +84,16 @@ class Game extends React.PureComponent<{}, State> {
         isWin: null
       });
     }, 800);
+
+    this.updateStore(isWin);
+  }
+
+  updateStore(isWin: boolean): void {
+    const {setScore, setTotalScore, setCoefficients} = this.props;
+
+    setScore(isWin, Game.PRIZE);
+    setTotalScore(isWin, Game.SCORE_NUM);
+    setCoefficients(isWin);
   }
 
   onMouseLeave() {
@@ -80,11 +107,7 @@ class Game extends React.PureComponent<{}, State> {
 
     return (
       <StyledWrapper>
-        <Head
-          isWin={isWin}
-          position={position}
-          isMouseEnter={isMouseEnter}
-        />
+        <Head isWin={isWin} position={position} isMouseEnter={isMouseEnter} />
         <Shells
           move={this.move}
           onChoose={this.onChoose}
