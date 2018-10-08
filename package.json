@@ -1,8 +1,27 @@
 {
-  "name": "game-01",
+  "name": "chance-the-game",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "The simple game that offers to compete with the Random, and use a prediction as a weapon.",
+  "main": ".src/index.tsx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IslasGalapagos/game-01.git"
+  },
+  "author": "https://github.com/IslasGalapagos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IslasGalapagos/game-01/issues"
+  },
+  "homepage": "https://github.com/IslasGalapagos/game-01#readme",
+  "keywords": [
+    "game",
+    "random",
+    "prediction",
+    "typescript",
+    "react",
+    "test",
+    "TDD"
+  ],
   "scripts": {
     "lint": "tslint -p ./",
     "test": "jest --config=jest/config.json",
@@ -15,16 +34,6 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IslasGalapagos/game-01.git"
-  },
-  "author": "https://github.com/IslasGalapagos",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/IslasGalapagos/game-01/issues"
-  },
-  "homepage": "https://github.com/IslasGalapagos/game-01#readme",
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@types/enzyme": "^3.1.14",
