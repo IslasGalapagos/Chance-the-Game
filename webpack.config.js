@@ -17,6 +17,23 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const {NODE_ENV = 'development'} = process.env;
 const isProduction = NODE_ENV === 'production';
 
+const faviconEntries = {
+  'android-chrome-192x192': 'android-chrome-192x192.png',
+  'android-chrome-256x256': 'android-chrome-256x256.png',
+  'apple-touch-icon': 'apple-touch-icon.png',
+  browserconfig: 'browserconfig.xml',
+  'favicon-16x16': 'favicon-16x16.png',
+  'favicon-32x32': 'favicon-32x32.png',
+  favicon: 'favicon.ico',
+  'mstile-150x150': 'mstile-150x150.png',
+  'safari-pinned-tab': 'safari-pinned-tab.svg',
+  site: 'site.webmanifest'
+};
+
+for (const name in faviconEntries) {
+  faviconEntries[name] = `./src/static/favicon/${faviconEntries[name]}`;
+}
+
 module.exports = {
   target: 'web',
 
@@ -25,7 +42,9 @@ module.exports = {
 
   entry: {
     bundle: './src/',
-    normilize: './node_modules/normalize.css/normalize.css'
+    normilize: './node_modules/normalize.css/normalize.css',
+
+    ...faviconEntries
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json', '.css']
@@ -62,6 +81,15 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },
       {
+        test: /favicon\/[\W\w]+\.\w+$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: 'images/favicon/[name].[ext]'
+          }
+        }
+      },
+      {
         test: /\.svg$/,
         use: [
           {
@@ -84,7 +112,8 @@ module.exports = {
               ]
             }
           }
-        ]
+        ],
+        exclude: /favicon\/[\W\w]+\.\w+$/
       }
     ]
   },
@@ -92,8 +121,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['build']),
     new HtmlWebpackPlugin({
-      // TODO: remove normilize.js injection
-      template: 'src/index.html'
+      template: 'src/index.html',
+      inject: false
     }),
     new MiniCssExtractPlugin({
       filename: isProduction ? '[name].[hash].css' : '[name].css'
