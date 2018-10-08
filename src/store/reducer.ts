@@ -21,7 +21,7 @@ export interface State {
 const initialState: Readonly<State> = {
   name: '',
   score: [0, 0],
-  coefficients: [1, 1],
+  coefficients: [0, 0],
   totalScore: [0, 0]
 };
 
