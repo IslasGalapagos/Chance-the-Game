@@ -11,7 +11,7 @@ import StartingScreen from './StartingScreenContainer';
 import Bg from './Bg';
 import Score from './ScoreContainer';
 import TotalScore from './TotalScoreContainer';
-import Game from './Game';
+import Game from './GameContainer';
 import ScreenChecker from './ScreenChecker';
 
 class App extends React.PureComponent<{}, {}> {
