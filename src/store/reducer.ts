@@ -18,7 +18,7 @@ export interface State {
   readonly totalScore: TupleNum;
 }
 
-const initialState: Readonly<State> = {
+export const initialState: Readonly<State> = {
   name: '',
   score: [0, 0],
   coefficients: [0, 0],
