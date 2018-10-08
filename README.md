@@ -1,7 +1,7 @@
 ## Todo:
 - [x] Add Game
 - [x] Add stub for ~~mobile~~ screens smaller than 960X740
-- [ ] Add writing user's game data to localstorage
+- [x] Add writing user's game data to localstorage
 - [x] Add license
 - [x] Separate styles from components
 - [ ] Add About
