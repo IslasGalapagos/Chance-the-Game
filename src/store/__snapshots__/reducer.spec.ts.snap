@@ -3,8 +3,8 @@
 exports[`reducer has initial state 1`] = `
 Object {
   "coefficients": Array [
-    1,
-    1,
+    0,
+    0,
   ],
   "name": "",
   "score": Array [
