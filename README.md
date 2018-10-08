@@ -6,7 +6,7 @@
 - [x] Separate styles from components
 - [ ] Add About
 - [ ] Add game name and description to repo
-- [ ] Add favicon
+- [x] Add favicon
 - [ ] ? Add shallow snapshots for some tests
 - [x] Add Redux store
 - [x] Add ~~Score~~ TotalScore
