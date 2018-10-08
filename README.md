@@ -1,4 +1,4 @@
-##About
+## About
 
 The simple game that offers to compete with the Random, and use a prediction as a weapon. You can use this game as a tool for procrastination, for example,  or for divination, or what you want. Have fun!
 
