@@ -8,7 +8,7 @@
 - [ ] Add game name and description to repo
 - [ ] Add favicon
 - [ ] ? Add shallow snapshots for some tests
-- [ ] Add Redux store
+- [x] Add Redux store
 - [x] Add ~~Score~~ TotalScore
 - [ ] ? Change description of some tests to more schematic
 
