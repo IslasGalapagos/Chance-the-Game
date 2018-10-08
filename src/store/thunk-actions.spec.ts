@@ -10,7 +10,7 @@ import {
   checkAndSetScore,
   checkAndSetCoefficients,
   computeAndSetTotalScore
-} from './thunkActions';
+} from './thunk-actions';
 
 jest.useFakeTimers();
 
