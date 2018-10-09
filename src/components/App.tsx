@@ -13,6 +13,7 @@ import Score from './ScoreContainer';
 import TotalScore from './TotalScoreContainer';
 import Game from './GameContainer';
 import ScreenChecker from './ScreenChecker';
+import About from './About';
 
 class App extends React.PureComponent<{}, {}> {
   render() {
@@ -24,6 +25,7 @@ class App extends React.PureComponent<{}, {}> {
           <Score />
           <TotalScore />
           <Game />
+          <About />
           <Bg />
         </React.Fragment>
       </React.StrictMode>
