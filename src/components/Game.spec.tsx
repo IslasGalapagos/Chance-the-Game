@@ -9,6 +9,7 @@
 import {shallow} from 'enzyme';
 import * as testRenderer from 'react-test-renderer';
 import * as React from 'react';
+import isEqual from 'lodash-es/isEqual';
 import Game, {Positions, Props} from './Game';
 import Head from './Head';
 import Shells from './Shells';
@@ -75,17 +76,40 @@ describe('<Game/>', () => {
     expect(component.state('isMouseEnter')).toEqual(false);
   });
 
-  it('has random that randomly returns one of Positions', () => {
+  it('has random that returns random Position(s)', () => {
     const component = shallow(<Game {...props} />);
     const {random} = component.instance() as Game;
-    const randomsArr: Positions[] = Array.apply(null, {length: 5})
-      .map(() => random())
-      .sort();
+    const randomsArr: Positions[][] = Array.apply(null, {length: 20}).map(() =>
+      random()
+    );
 
-    randomsArr.forEach((x: Positions) => {
-      expect(positionsArr).toContain(x);
+    randomsArr.forEach((x: Positions[]) => {
+      expect(positionsArr).toEqual(expect.arrayContaining(x));
     });
-    expect(randomsArr[0]).not.toEqual(randomsArr[4]);
+
+    const singles = randomsArr.filter((x: Positions[]) => x.length === 1);
+    expect(singles.length).not.toEqual(0);
+    const tuples = randomsArr.filter((x: Positions[]) => x.length === 2);
+    expect(tuples.length).not.toEqual(0);
+
+    expect(singles.length + tuples.length).toEqual(20);
+
+    const isSinglesDiff = singles.some(
+      (x: Positions[], index) => index > 0 && x[0] !== singles[index - 1][0]
+    );
+    expect(isSinglesDiff).toBeTruthy();
+
+    const isTupleasDiff = tuples.some((x: Positions[], index) => {
+      x.sort();
+
+      if (index === 0) {
+        return false;
+      }
+
+      return !isEqual(x[0], tuples[index - 1]);
+    });
+
+    expect(isTupleasDiff).toBeTruthy();
   });
 
   it(`has onChoose that takes user's choice, determines win or fail by random & changes state for some time`, () => {
