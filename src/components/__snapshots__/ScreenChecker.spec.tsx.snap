@@ -5,7 +5,7 @@ exports[`<ScreenChecker/> renders correctly 1`] = `
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 3;
+  z-index: 4;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -20,7 +20,7 @@ exports[`<ScreenChecker/> renders correctly 1`] = `
   align-items: center;
   width: 100%;
   height: 100%;
-  background: #0000B1;
+  background: #0000b1;
 }
 
 .emotion-0 span {
@@ -29,7 +29,7 @@ exports[`<ScreenChecker/> renders correctly 1`] = `
   font-weight: bold;
   text-align: center;
   padding: 0 30px;
-  color: #FFF;
+  color: #fff;
 }
 
 @media (min-width:740px) {
