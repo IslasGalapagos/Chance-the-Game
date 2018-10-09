@@ -18,6 +18,8 @@ const NumCSS = css`
   width: 64px;
   box-sizing: border-box;
   border-radius: 50%;
+
+  transition: left 0.2s ease;
 `;
 
 interface NumProps {
