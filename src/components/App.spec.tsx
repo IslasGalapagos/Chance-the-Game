@@ -15,6 +15,7 @@ import Score from './ScoreContainer';
 import TotalScore from './TotalScoreContainer';
 import Game from './GameContainer';
 import ScreenChecker from './ScreenChecker';
+import About from './About';
 
 describe('App', () => {
   it('contains <StartingScreen/>', () => {
@@ -45,5 +46,10 @@ describe('App', () => {
   it('contains <TotalScore/>', () => {
     const component = shallow(<App />);
     expect(component.contains(<TotalScore />)).toBeTruthy();
+  });
+
+  it('contains <About/>', () => {
+    const component = shallow(<App />);
+    expect(component.contains(<About />)).toBeTruthy();
   });
 });
