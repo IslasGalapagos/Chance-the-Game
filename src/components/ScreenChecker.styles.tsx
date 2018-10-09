@@ -12,7 +12,7 @@ const StyledStub = styled('div')`
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 3;
+  z-index: 4;
 
   display: flex;
   justify-content: center;
@@ -21,7 +21,7 @@ const StyledStub = styled('div')`
   width: 100%;
   height: 100%;
 
-  background: #0000B1;
+  background: #0000b1;
 
   span {
     font-family: 'Courier New', Courer;
@@ -31,7 +31,7 @@ const StyledStub = styled('div')`
 
     padding: 0 30px;
 
-    color: #FFF;
+    color: #fff;
 
     @media (min-width: 740px) {
       padding: 0;
