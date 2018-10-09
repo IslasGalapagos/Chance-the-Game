@@ -125,7 +125,7 @@ module.exports = {
       inject: false
     }),
     new MiniCssExtractPlugin({
-      filename: isProduction ? '[name].[hash].css' : '[name].css'
+      filename: '[name].css'
     })
   ],
 
