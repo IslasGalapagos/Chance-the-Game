@@ -7,6 +7,7 @@
 */
 
 import * as React from 'react';
+import shuffle from 'lodash-es/shuffle';
 import StyledWrapper from './Game.styles';
 import Head from './Head';
 import Shells from './Shells';
@@ -64,14 +65,22 @@ class Game extends React.PureComponent<Props, State> {
     });
   }
 
-  random(): Positions {
-    return [Positions.Left, Positions.Center, Positions.Right][
-      Math.floor(Math.random() * 3)
-    ];
+  random(): Positions[] {
+    const position: Positions[] = shuffle([
+      Positions.Left,
+      Positions.Center,
+      Positions.Right
+    ]);
+    const oneOrTwo = Math.floor(Math.random() * 4 + 1) === 3 ? 2 : 1;
+
+    return Array.apply(null, {length: oneOrTwo}).map(
+      () => position.splice(0, 1)[0]
+    );
   }
 
   onChoose(position: Positions): void {
-    const isWin = position === this.random();
+    const winningPositions: Positions[] = this.random();
+    const isWin = winningPositions.includes(position);
 
     this.setState({
       chosenPosition: position,
