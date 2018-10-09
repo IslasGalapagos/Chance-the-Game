@@ -74,8 +74,6 @@ class Bg extends React.PureComponent<{}, State> {
   }
 
   draw() {
-    // TODO: write visual test ?
-    // TODO: create more complicated thing – interactive or animated
     const canvas = this.canvasRef.current;
 
     if (canvas === null) {

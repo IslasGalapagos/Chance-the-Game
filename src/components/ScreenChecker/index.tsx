@@ -63,7 +63,6 @@ class ScreenChecker extends React.PureComponent<{}, State> {
 
   render() {
     const {isSuitable} = this.state;
-    // TODO: rewrite text for more user-friendly
     return (
       <div>
         {!isSuitable ? (

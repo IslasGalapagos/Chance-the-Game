@@ -15,5 +15,4 @@ describe.only('root', () => {
     store.dispatch(setName('Diophantus'));
     expect(localStorage.getItem('storeState')).not.toBeNull();
   });
-  // TODO: Add missing test for preloadState from localStorage
 });

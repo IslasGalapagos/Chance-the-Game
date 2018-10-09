@@ -6,7 +6,6 @@
   Copyright © 2018 Evgeny Sysoletin. All rights reserved.
 */
 
-// TODO: rewrite to .ts
 import {configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
