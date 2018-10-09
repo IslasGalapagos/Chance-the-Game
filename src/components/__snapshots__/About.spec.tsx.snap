@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About/> renders correctly 1`] = `
+.emotion-0 {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+  z-index: 1;
+  width: 74px;
+  height: 74px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.emotion-0:before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 54px;
+  height: 54px;
+  box-sizing: border-box;
+  border: 2px solid #c8e8e5;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.emotion-1 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+}
+
+<div
+  className="emotion-1"
+>
+  <div
+    className="about__inner"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <button
+      className="emotion-0"
+      onClick={[Function]}
+    >
+      <svg
+        fill="#A3ABF3"
+        height="35"
+        viewBox="0 0 16 35"
+        width="16"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="
+                  M7.8667 5.38474C9.2811 5.38474 10.4277 4.17938 10.4277 2.69243C10.4277 1.20548 9.2811
+                  0.00012207 7.8667 0.00012207C6.45231 0.00012207 5.30573 1.20548 5.30573 2.69243C5.30573
+                  4.17938 6.45231 5.38474 7.8667 5.38474Z
+                "
+        />
+        <path
+          d="
+                  M2.74475 13.4617C4.15914 13.4617 5.30573 12.3151 5.30573 10.9007V10.638C5.30573 9.22363
+                  6.45232 8.07705 7.8667 8.07705C9.28109 8.07705 10.4277 9.22363 10.4277 10.638V27.0545C10.4277
+                  28.4689 11.5743 29.6155 12.9887 29.6155C14.403 29.6155 15.5496 30.7621 15.5496 32.1765V32.3078C15.5496
+                  33.7947 14.3442 35.0001 12.8573 35.0001H2.87608C1.38916 35.0001 0.183777 33.7947 0.183777
+                  32.3078V32.1765C0.183777 30.7621 1.33037 29.6155 2.74475 29.6155C4.15914 29.6155 5.30573
+                  28.4689 5.30573 27.0545V21.4073C5.30573 19.9929 4.15914 18.8463 2.74475 18.8463C1.33037
+                  18.8463 0.183777 17.6997 0.183777 16.2853V16.0226C0.183777 14.6082 1.33037 13.4617 2.74475 13.4617Z
+                "
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
