@@ -9,11 +9,11 @@
 import * as React from 'react';
 import {shallow} from 'enzyme';
 import App from './App';
-import StartingScreen from './StartingScreenContainer';
+import StartingScreen from './StartingScreen/container';
 import Bg from './Bg';
-import Score from './ScoreContainer';
-import TotalScore from './TotalScoreContainer';
-import Game from './GameContainer';
+import Score from './Score/container';
+import TotalScore from './TotalScore/container';
+import Game from './Game/container';
 import ScreenChecker from './ScreenChecker';
 import About from './About';
 
