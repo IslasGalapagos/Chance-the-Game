@@ -10,6 +10,8 @@ exports[`<Score/> overlap one element be another, depends on score 1`] = `
   width: 64px;
   box-sizing: border-box;
   border-radius: 50%;
+  -webkit-transition: left 0.2s ease;
+  transition: left 0.2s ease;
 }
 
 .emotion-4 {
@@ -62,6 +64,8 @@ exports[`<Score/> overlap one element be another, depends on score 2`] = `
   width: 64px;
   box-sizing: border-box;
   border-radius: 50%;
+  -webkit-transition: left 0.2s ease;
+  transition: left 0.2s ease;
 }
 
 .emotion-4 {
@@ -114,6 +118,8 @@ exports[`<Score/> renders correctly 1`] = `
   width: 64px;
   box-sizing: border-box;
   border-radius: 50%;
+  -webkit-transition: left 0.2s ease;
+  transition: left 0.2s ease;
 }
 
 .emotion-4 {

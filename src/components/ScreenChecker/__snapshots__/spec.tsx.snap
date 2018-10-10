@@ -5,7 +5,7 @@ exports[`<ScreenChecker/> renders correctly 1`] = `
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 4;
+  z-index: 5;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -43,9 +43,9 @@ exports[`<ScreenChecker/> renders correctly 1`] = `
     className="emotion-0"
   >
     <span>
-      Sorry, but your screen size is smaller than required.
+      Sorry, but your screen sizes are smaller than required.
       <br />
-      Minimal sizes: width=960, height=800
+      Minimum needed: width=960, height=700
     </span>
   </div>
 </div>
