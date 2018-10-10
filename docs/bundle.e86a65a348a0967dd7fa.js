@@ -6621,7 +6621,7 @@ class ScreenChecker_ScreenChecker extends react["PureComponent"] {
     const {
       isSuitable
     } = this.state;
-    return react["createElement"]("div", null, !isSuitable ? react["createElement"](ScreenChecker_styles, null, react["createElement"]("span", null, "Sorry, but your screen size is smaller than required.", react["createElement"]("br", null), "Minimal sizes: width=960, height=800")) : null);
+    return react["createElement"]("div", null, !isSuitable ? react["createElement"](ScreenChecker_styles, null, react["createElement"]("span", null, "Sorry, but your screen sizes are smaller than required.", react["createElement"]("br", null), "Minimum needed: width=960, height=800")) : null);
   }
 
 }
@@ -6924,4 +6924,4 @@ Object(react_dom["render"])(react["createElement"](src_AppRoot, null), document.
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.2582dbf1ec75c08f2608.js.map
+//# sourceMappingURL=bundle.e86a65a348a0967dd7fa.js.map
