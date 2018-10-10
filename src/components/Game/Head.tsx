@@ -55,9 +55,9 @@ class Head extends React.PureComponent<Props, {}> {
     return (
       <StyledWrapper position={position} emotion={emotion}>
         {isMouseEnter && (
-          <View src="/images/view.svg" emotion={emotion} alt="view" />
+          <View src="./images/view.svg" emotion={emotion} alt="view" />
         )}
-        <img src={`/images/head-${emotion}.svg`} alt="head" />
+        <img src={`./images/head-${emotion}.svg`} alt="head" />
       </StyledWrapper>
     );
   }
