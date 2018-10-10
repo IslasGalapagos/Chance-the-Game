@@ -4382,7 +4382,7 @@ const StyledWrapper = react_emotion_dist_index_esm('div')`
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 4;
 
   width: 100%;
   height: 100%;
@@ -4403,8 +4403,7 @@ const margin = index_esm["css"]`
 const StyledHeader = react_emotion_dist_index_esm('h1')`
   font-weight: normal;
 
-  ${() => fontStyles}
-  ${() => margin}
+  ${() => fontStyles} ${() => margin};
 `;
 // CONCATENATED MODULE: ./src/components/StartingScreen/LetsStartBlock.styles.tsx
 
@@ -6546,7 +6545,7 @@ const StyledStub = react_emotion_dist_index_esm('div')`
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 4;
+  z-index: 5;
 
   display: flex;
   justify-content: center;
@@ -6925,4 +6924,4 @@ Object(react_dom["render"])(react["createElement"](src_AppRoot, null), document.
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.1bd6d5153160ec7cb1b1.js.map
+//# sourceMappingURL=bundle.f62517d709b6cd181f11.js.map
