@@ -6227,11 +6227,11 @@ class Head_Head extends react["PureComponent"] {
       position: position,
       emotion: emotion
     }, isMouseEnter && react["createElement"](View, {
-      src: "/images/view.svg",
+      src: "./images/view.svg",
       emotion: emotion,
       alt: "view"
     }), react["createElement"]("img", {
-      src: `/images/head-${emotion}.svg`,
+      src: `./images/head-${emotion}.svg`,
       alt: "head"
     }));
   }
@@ -6924,4 +6924,4 @@ Object(react_dom["render"])(react["createElement"](src_AppRoot, null), document.
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.f62517d709b6cd181f11.js.map
+//# sourceMappingURL=bundle.2582dbf1ec75c08f2608.js.map
