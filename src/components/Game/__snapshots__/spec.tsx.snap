@@ -75,7 +75,7 @@ exports[`<Game/> renders correctly 1`] = `
   >
     <img
       alt="head"
-      src="/images/head-default.svg"
+      src="./images/head-default.svg"
     />
   </div>
   <div
