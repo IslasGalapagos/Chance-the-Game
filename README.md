@@ -1,3 +1,5 @@
+[chancethegame.fun](http://chancethegame.fun/)
+
 ## About
 
 🎲  
