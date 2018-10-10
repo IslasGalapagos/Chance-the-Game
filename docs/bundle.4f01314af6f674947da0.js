@@ -6692,7 +6692,7 @@ const textBlockCSS = index_esm["css"]`
       content: '⇨';
 
       position: absolute;
-      top: -2px;
+      top: 2px;
       left: -26px;
     }
 
@@ -6924,4 +6924,4 @@ Object(react_dom["render"])(react["createElement"](src_AppRoot, null), document.
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.e86a65a348a0967dd7fa.js.map
+//# sourceMappingURL=bundle.4f01314af6f674947da0.js.map
