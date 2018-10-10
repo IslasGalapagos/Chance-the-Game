@@ -17,7 +17,7 @@ interface MinSizes {
 
 export const minSizes: Readonly<MinSizes> = {
   WIDTH: 960,
-  HEIGHT: 740
+  HEIGHT: 700
 };
 
 interface State {
@@ -70,7 +70,7 @@ class ScreenChecker extends React.PureComponent<{}, State> {
             <span>
               Sorry, but your screen sizes are smaller than required.
               <br />
-              Minimum needed: width=960, height=800
+              Minimum needed: width=960, height=700
             </span>
           </StyledStub>
         ) : null}
