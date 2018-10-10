@@ -77,7 +77,7 @@ export const textBlockCSS = css`
       content: '⇨';
 
       position: absolute;
-      top: -2px;
+      top: 2px;
       left: -26px;
     }
 
