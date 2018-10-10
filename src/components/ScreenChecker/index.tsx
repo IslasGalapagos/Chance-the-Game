@@ -68,9 +68,9 @@ class ScreenChecker extends React.PureComponent<{}, State> {
         {!isSuitable ? (
           <StyledStub>
             <span>
-              Sorry, but your screen size is smaller than required.
+              Sorry, but your screen sizes are smaller than required.
               <br />
-              Minimal sizes: width=960, height=800
+              Minimum needed: width=960, height=800
             </span>
           </StyledStub>
         ) : null}
