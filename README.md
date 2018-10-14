@@ -1,5 +1,5 @@
-[chancethegame.fun](http://chancethegame.fun/)  
-dat://a901dd4d03904aa0bce2026a74f1f1e9a5e2fe82125a66b3ad41a3a49f724f3e
+→ [chancethegame.fun](http://chancethegame.fun/)  
+→ dat://chance-the-game.hashbase.io/
 
 ## About
 
